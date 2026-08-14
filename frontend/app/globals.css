@@ -1,0 +1,11 @@
+
+@import "tailwindcss";
+
+@theme {
+  --font-mulish: var(--font-mulish);
+  /* You can also set it as the default font-sans: */
+  --font-sans: var(--font-mulish), system-ui, sans-serif;
+}
+body::selection {
+  background-color: #303846;
+}
