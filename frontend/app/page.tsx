@@ -2,10 +2,11 @@ import Navbar from "@/components/Global/NavBar";
 import About from "@/components/Home/About";
 import Header from "@/components/Home/Header";
 import Logo from "@/components/Home/Logo";
+import Services from "@/components/Home/Services";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Main Home - OgCrystal",
 };
 
 export default function Page() {
@@ -20,7 +21,8 @@ export default function Page() {
 
       {/* Content Section sliding up over the header (z-10) */}
       <Logo />
-      <About/>
+      <About />
+      <Services/>
     </main>
   );
 }

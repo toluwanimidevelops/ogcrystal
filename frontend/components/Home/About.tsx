@@ -52,8 +52,8 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="w-full p-2">
-        <div className="w-full max-h-100 bg-gray-200 rounded-tl-5xl overflow-hidden rounded-br-5xl">
+      <div className="w-full p-2 my-15">
+        <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px]">
           <img
             src={"/002.jpg"}
             alt={"About"}
