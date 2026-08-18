@@ -4,10 +4,12 @@ import Header from "@/components/Home/Header";
 import Logo from "@/components/Home/Logo";
 import OurValues from "@/components/Home/OurValues";
 import Services from "@/components/Home/Services";
+import WhyOGCrystal from "@/components/Home/Whyus";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Main Home - OgCrystal",
+  title:
+    "Main Home - OG Crystal Services | People Advisory, HR & Career Growth",
 };
 
 export default function Page() {
@@ -24,6 +26,7 @@ export default function Page() {
       <About />
       <Services />
       <OurValues />
+      <WhyOGCrystal />
     </main>
   );
 }

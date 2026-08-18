@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | OgCrystal", // Plugs "Home" into %s
-    default: "OgCrystal",
+    template: "%s | OG Crystal Services | People Advisory, HR & Career Growth", // Plugs "Home" into %s
+    default: "OG Crystal Services | People Advisory, HR & Career Growth",
   },
   description:
-    "OgCrystals provides information and resources about crystals...",
+    "OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.",
 };
 
 export default function RootLayout({

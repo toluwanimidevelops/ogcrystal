@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Our Approach", href: "/our-approach" },
   { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
+  {name: "Blog", href:"/blog"}
 ];
 
 export default function Navbar() {
@@ -41,7 +42,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold tracking-tight text-white">
-          OgCrystal<span className="text-[#B8944D]">.</span>
+          <img src={isScrolled?"/logo/ogcrystalwhite.png":"/logo/ogcrystal.png"} className="w-15" alt="" />
         </Link>
 
         {/* Desktop Links */}

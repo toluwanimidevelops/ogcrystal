@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <div
       className={`relative h-screen w-full transition-all duration-500 ease-out overflow-x-clip ${
-        isScrolled ? "p-0" : "p-5"
+        isScrolled ? "p-0" : "p-2"
       }`}
     >
       <div
@@ -79,7 +79,7 @@ export default function Header() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white text-7xl md:text-9xl font-extrabold tracking-tighter drop-shadow-lg"
+                className="text-white text-5xl md:text-9xl font-extrabold tracking-tighter drop-shadow-lg"
               >
                 {currentSlide.text}
               </motion.p>

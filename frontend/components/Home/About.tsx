@@ -2,10 +2,14 @@ import React from "react";
 import Title from "../Global/Title";
 import Image from "next/image";
 
-const About = () => {
+const About = ({ titleNotNeeded, exemptButton }: { titleNotNeeded?: boolean, exemptButton?: boolean  }) => {
   return (
-    <div className="max-w-full w-6xl px-5 mx-auto ">
-      <Title small="who we are" title="Og Crystal Services" />
+    <div className="max-w-full w-7xl px-6 md:px-12 mx-auto ">
+      {titleNotNeeded ? (
+        ""
+      ) : (
+        <Title small="who we are" title="Og Crystal Services" />
+      )}
       <div className="flex gap-5 font-mulish text-[17px] text-[#7a7a7a] font-normal max-md:flex-col">
         <div className="flex-1">
           <p>OG Crystal Services: People. Performance. Purpose.</p>
@@ -25,9 +29,10 @@ const About = () => {
             understand the real issue, bring perspective and help turn
             uncertainty into a practical.
           </p>
-          <button className="bg-[#B8944D] mt-4 text-white py-2 px-6 cursor-pointer text-md  hover:bg-[#a89268] transition-colors">
+          {exemptButton?"": <button  className="bg-[#B8944D] mt-4 text-white py-2 px-6 cursor-pointer text-md  hover:bg-[#a89268] transition-colors">
             Learn More
-          </button>
+          </button>}
+          
         </div>
         <div className="flex-1">
           <p>More than advice. A trusted partner in growth.</p>
@@ -53,13 +58,8 @@ const About = () => {
         </div>
       </div>
       <div className="w-full p-2 my-15">
-        <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px]">
-          <img
-            src={"/002.jpg"}
-            alt={"About"}
-          
-            className="object-cover"
-          />
+        <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px] max-md:rounded-br-[100px] max-md:rounded-tl-[100px] max-sm:rounded-tl-[70px] max-sm:rounded-br-[70px]">
+          <img src={"/002.jpg"} alt={"About"} className="object-cover" />
         </div>
       </div>
     </div>
