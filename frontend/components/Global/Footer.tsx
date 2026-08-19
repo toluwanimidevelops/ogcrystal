@@ -10,12 +10,12 @@ const Footer = () => {
                 `}
       </style>
       <div className="px-4 md:px-12">
-        <div className="bg-[#071A3D]  w-7xl max-w-full flex justify-center items-center flex-col rounded-2xl my-10 min-h-70 mx-auto md:px-20  px-2">
+        <div className="bg-[#071A3D]  w-7xl max-w-full gap-5 flex justify-center items-center flex-col rounded-2xl my-10 min-h-70 mx-auto md:px-20  px-5">
           <q className="font-mulish italic text-white font-semibold text-center max-md:text-xl text-2xl">
             Sometimes the value isn't in having all the answers. It's in having
             someone who knows what questions to ask.
           </q>
-          <p className="text-right w-full text-[#B8944D]">-Og Crystals</p>
+          <p className="text-right italic w-full text-[#B8944D]">-Og Crystals</p>
         </div>
       </div>
 
