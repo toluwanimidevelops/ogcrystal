@@ -24,7 +24,7 @@ const ServicesCard = ({
       >
         <p className="text-[#B8944D] uppercase text-[12px] font-medium">{text1}</p>
         <h1 className="font-serif text-[#071a3d] max-sm:text-3xl max-lg:text-4xl  text-5xl">{text2}</h1>
-        <p className="max-sm:text-[14px] max-lg:text-[15px] text-[#7a7a7a]">{text3}</p>
+        <p className="max-sm:text-[14px] font-light max-lg:text-[15px] text-[#7a7a7a]">{text3}</p>
         {buttons}
       </div>
       <div className={imagePosition === "left" ? "order-first" : "order-last"}>

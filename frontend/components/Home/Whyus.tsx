@@ -30,7 +30,7 @@ export default function WhyOGCrystal() {
   ];
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto">
+    <section className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto">
       <div>
         <Title small="The OG Crystal Difference" title="Why OG Crystal?" />
         {/* Left Column: Heading */}
@@ -42,7 +42,7 @@ export default function WhyOGCrystal() {
         </div>
 
         {/* Right Column: Cards Grid */}
-        <div className="grid grid-cols-2 max-md:grid-cols-1 mt-10 gap-2">
+        <div className="grid grid-cols-2 max-md:grid-cols-1 mt-10 gap-4">
           {pillars.map((item, index) => (
             <div
               className={`p-6 rounded-2xl flex gap-2  border cursor-pointer border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 `}
@@ -50,7 +50,7 @@ export default function WhyOGCrystal() {
             >
               <div className="size-15 rounded-full flex shrink-0 font-bold justify-center items-center  bg-[#EAF2FB]">{index + 1}</div>
               <div>
-                <h3 className="text-md font-bold mb-2">{item.title}</h3>
+                <h3 className="text-md font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.description}
                 </p>

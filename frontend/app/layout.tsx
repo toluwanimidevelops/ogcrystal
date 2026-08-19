@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono , Mulish} from "next/font/google";
+import { Geist, Geist_Mono, Mulish } from "next/font/google";
 
 import "./globals.css";
 import Navbar from "@/components/Global/NavBar";
+import Footer from "@/components/Global/Footer";
 const mulish = Mulish({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mulish', // optional: CSS variable if using Tailwind or CSS variables
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mulish", // optional: CSS variable if using Tailwind or CSS variables
 });
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist',
 });
 
 const geistMono = Geist_Mono({
@@ -25,6 +30,9 @@ export const metadata: Metadata = {
   },
   description:
     "OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.",
+  icons: {
+      icon: '/logo/favicon.png',
+    }
 };
 
 export default function RootLayout({
@@ -35,11 +43,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${mulish.variable} bg-white h-full antialiased`}
+      className={`${geistSans.className} ${geist.className} ${geistMono.variable} ${mulish.className} ${geistMono.variable} ${mulish.variable} bg-white h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
-        {children}</body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

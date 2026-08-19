@@ -13,7 +13,7 @@ const Title = ({
 }) => {
   return (
     <div className="flex flex-col justify-center items-center">
-      <p className={`text-center px-4 py-2 rounded-2xl w-fit ${smallTextColor ? "bg-gray-400/10  ": "bg-gray-400/5 "} tracking-[0.3em] uppercase font-mulish  text-[10px] ${smallTextColor? smallTextColor : "text-[#838280]"}  font-medium`}>
+      <p className={`text-center px-4 py-2 rounded-2xl w-fit ${smallTextColor ? "bg-gray-400/10  ": "bg-gray-400/5 "} tracking-[0.3em] uppercase font-mulish  text-[10px] ${smallTextColor? smallTextColor : "text-[#838280]"}  font-normal`}>
         {small}
       </p>
       <h2 className={`text-center ${bigTextColor ? bigTextColor: "text-[#071a3d]"}  font-mulish text-[50px] max-md:text-[30px] my-5 mb-5 max-md:mb-5 max-md:my-5 leading-15 capitalize tracking-tighter font-semibold  `}>

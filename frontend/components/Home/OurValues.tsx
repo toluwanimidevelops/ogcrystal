@@ -54,7 +54,7 @@ const OurValues = () => {
   ];
   return (
     <div className="w-full mt-60 py-30 bg-[#071a3d]">
-      <div className="max-w-full w-6xl px-5 mx-auto ">
+      <div className="max-w-full w-7xl px-6 md:px-12 mx-auto ">
         <Title
           small="our values"
           title="Values you will find here"
