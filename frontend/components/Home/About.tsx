@@ -33,7 +33,7 @@ const About = ({
 
   return (
     <div className="max-w-full w-7xl px-6 md:px-12 mx-auto">
-    <Title small="who we are" title="Og Crystal Services" />
+      <Title small="who we are" title="Og Crystal Services" />
 
       <motion.div
         className="flex gap-5 font-mulish text-[17px] text-[#7a7a7a] font-normal max-md:flex-col"
@@ -45,6 +45,12 @@ const About = ({
         {/* Left Column */}
         <motion.div className="flex-1" variants={itemVariants}>
           <p>OG Crystal Services: People. Performance. Purpose.</p>
+          <p className="mt-2">
+            We help startups, growing businesses, professionals and individuals
+            navigate people, workplace and career challenges with practical
+            advice, strategic HR expertise and solutions designed around where
+            they are and where they want to go.
+          </p>
           <p className="mt-2">
             Growth is built by people. Every business begins with people. Every
             career is shaped by decisions. Every season of growth comes with
@@ -94,6 +100,12 @@ const About = ({
             and individual has a unique context. Our role is to listen,
             understand, advise and help create a practical path forward.
           </p>
+          <p className="mt-2">
+            OG Crystal is beginning with People Advisory as its flagship
+            practice. As the wider business develops, additional advisory and
+            service areas may be introduced under the OG Crystal Services
+            umbrella without changing the core brand philosophy.
+          </p>
         </motion.div>
       </motion.div>
 
@@ -106,7 +118,11 @@ const About = ({
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px] max-md:rounded-br-[100px] max-md:rounded-tl-[100px] max-sm:rounded-tl-[70px] max-sm:rounded-br-[70px]">
-          <img src={"/002.jpg"} alt={"About"} className="object-cover w-full h-full" />
+          <img
+            src={"/002.jpg"}
+            alt={"About"}
+            className="object-cover w-full h-full"
+          />
         </div>
       </motion.div>
     </div>
