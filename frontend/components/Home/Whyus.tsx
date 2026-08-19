@@ -1,4 +1,8 @@
+"use client";
+
+import React from "react";
 import Title from "../Global/Title";
+import { motion } from "framer-motion";
 
 export default function WhyOGCrystal() {
   const pillars = [
@@ -29,35 +33,73 @@ export default function WhyOGCrystal() {
     },
   ];
 
+  // Container variants for staggering grid items
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  // Card animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto">
+    <section className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden">
       <div>
         <Title small="The OG Crystal Difference" title="Why OG Crystal?" />
-        {/* Left Column: Heading */}
-        <div>
+
+        {/* Subtitle description fade-in */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <p className="text-gray-600 text-center leading-relaxed">
             We combine strategic HR discipline with authentic human insight to
             build resilient, high-performing workplace cultures.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Right Column: Cards Grid */}
-        <div className="grid grid-cols-2 max-md:grid-cols-1 mt-10 gap-4">
+        {/* Cards Grid */}
+        <motion.div
+          className="grid grid-cols-2 max-md:grid-cols-1 mt-10 gap-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {pillars.map((item, index) => (
-            <div
-              className={`p-6 rounded-2xl flex gap-2  border cursor-pointer border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 `}
+            <motion.div
               key={index}
+              variants={cardVariants}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="p-6 rounded-2xl flex gap-4 border cursor-pointer border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="size-15 rounded-full flex shrink-0 font-bold justify-center items-center  bg-[#EAF2FB]">{index + 1}</div>
+              <div className="size-15 rounded-full flex shrink-0 font-bold justify-center items-center bg-[#EAF2FB] text-[#071a3d]">
+                {index + 1}
+              </div>
               <div>
                 <h3 className="text-md font-semibold mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

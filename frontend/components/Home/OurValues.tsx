@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Title from "../Global/Title";
+import { motion } from "framer-motion";
 import { LuShieldCheck } from "react-icons/lu";
 import {
   TbAward,
@@ -9,7 +12,7 @@ import {
 } from "react-icons/tb";
 
 const OurValues = () => {
-  let data = [
+  const data = [
     {
       icon: (
         <LuShieldCheck size={35} strokeWidth={1} className="text-[#071A3D]" />
@@ -33,7 +36,6 @@ const OurValues = () => {
         />
       ),
       title: "People",
-      
       description:
         "We treat people with dignity, respect and genuine consideration.",
     },
@@ -52,6 +54,28 @@ const OurValues = () => {
         "We care about creating work and outcomes that have meaning beyond simply getting the job done.",
     },
   ];
+
+  // Container animation variants for staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  // Individual card item animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <div className="w-full mt-60 py-30 bg-[#071a3d]">
       <div className="max-w-full w-7xl px-6 md:px-12 mx-auto ">
@@ -61,19 +85,30 @@ const OurValues = () => {
           smallTextColor="text-white"
           bigTextColor="text-white"
         />
-        <div className="w-full  max-sm:grid-cols-1 max-md:grid-cols-2 gap-10 mt-20 mx-auto grid grid-cols-3 ">
+
+        <motion.div
+          className="w-full max-sm:grid-cols-1 max-md:grid-cols-2 gap-10 mt-20 mx-auto grid grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {data.map((item, index) => (
-            <div key={index}>
-              <div className={`size-15 flex items-center justify-center rounded-full bg-[#F8F6F1] `}>
+            <motion.div key={index} variants={cardVariants}>
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="size-15 flex items-center justify-center rounded-full bg-[#F8F6F1] mb-4"
+              >
                 {item.icon}
-              </div>
+              </motion.div>
               <h3 className="text-xl font-bold text-white mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-400">{item.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
