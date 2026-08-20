@@ -29,7 +29,7 @@ const About = ({
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  };
+  } as const;
 
   return (
     <div className="max-w-full w-7xl px-6 md:px-12 mx-auto">

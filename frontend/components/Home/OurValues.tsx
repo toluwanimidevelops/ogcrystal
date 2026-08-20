@@ -74,7 +74,7 @@ const OurValues = () => {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  };
+  } as const;
 
   return (
     <div className="w-full mt-60 py-30 bg-[#071a3d]">

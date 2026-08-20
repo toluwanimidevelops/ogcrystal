@@ -29,7 +29,7 @@ const Title = ({ small, title, smallTextColor, bigTextColor }: TitleProps) => {
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" },
     },
-  };
+  } as const;
 
   return (
     <motion.div
