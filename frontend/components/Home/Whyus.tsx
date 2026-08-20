@@ -2,7 +2,7 @@
 
 import React from "react";
 import Title from "../Global/Title";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function WhyOGCrystal() {
   const pillars = [
@@ -45,14 +45,18 @@ export default function WhyOGCrystal() {
   };
 
   // Card animation variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
+  const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  hover: {
+    y: -5,
+    transition: { duration: 0.2, ease: "easeOut" },
+  },
+};
 
   return (
     <section className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden">
@@ -83,6 +87,7 @@ export default function WhyOGCrystal() {
           {pillars.map((item, index) => (
             <motion.div
               key={index}
+              
               variants={cardVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
