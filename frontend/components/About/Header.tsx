@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({small, text}:{small:string, text:string}) => {
   return (
     <div className="h-[70vh] relative overflow-hidden w-full ">
       <img
@@ -13,9 +13,11 @@ const Header = () => {
           <p
             className={`text-center px-4 py-2 rounded-2xl w-fit bg-white/20   tracking-[0.3em] uppercase font-mulish  text-[10px]  text-white  font-medium`}
           >
-            Who we Are
+            {small}
           </p>
-          <h2 className="text-white text-6xl ">About Us</h2>
+          <h2 className="text-white text-6xl ">{
+            text
+          }</h2>
         </div>
       </div>
     </div>

@@ -6,20 +6,23 @@ import ServicesCard from "./ServicesCard";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Services = () => {
+const Services = ({ notitle }: { notitle?: boolean }) => {
   return (
-    <div className="mt-60">
-      <Title small="what we do" title="Our Services" />
-      
-      <motion.p
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.8 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-center tracking-[0.3em] uppercase font-mulish mb-20 text-[10px] text-[#838280] font-medium"
-      >
-        These are the three pillars of the Og Crystal Services
-      </motion.p>
+    <div className={`${!notitle ? "mt-60" : ""}`}>
+      {!notitle ? <Title small="what we do" title="Our Services" /> : ""}
+      {!notitle ? (
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center tracking-[0.3em] uppercase font-mulish mb-20 text-[10px] text-[#838280] font-medium"
+        >
+          These are the three pillars of the Og Crystal Services
+        </motion.p>
+      ) : (
+        ""
+      )}
 
       <div className="flex flex-col max-md:gap-10">
         <ServicesCard
@@ -33,7 +36,7 @@ const Services = () => {
             <div className="flex justify-center gap-2 items-center">
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/about/hrPeoleAdvisory"}
+                href={"/what-we-do/hrPeoleAdvisory"}
               >
                 Learn More
               </Link>
@@ -58,7 +61,7 @@ const Services = () => {
             <div className="flex justify-center gap-2 items-center">
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/about/hrPeoleAdvisory"}
+                href={"/what-we-do/hrPeoleAdvisory"}
               >
                 Learn More
               </Link>
@@ -83,7 +86,7 @@ const Services = () => {
             <div className="flex justify-center gap-2 items-center">
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/about/hrPeoleAdvisory"}
+                href={"/what-we-do/hrPeoleAdvisory"}
               >
                 Learn More
               </Link>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div >
-      <Header />
+      <Header small="Who we are" text="About Us" />
       <Logo />
       <About titleNotNeeded exemptButton />
       <AboutFounder/>
