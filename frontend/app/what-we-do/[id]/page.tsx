@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import Link from "next/link";
 import Header from "@/components/About/Header";
+import Title from "@/components/Global/Title";
 // data/servicesData.ts
 
 export interface ServiceDetail {
@@ -123,7 +124,7 @@ export default async function ServiceDetailPage({
   return (
     <>
       <Header small="Service Overview" text={service.title} subText={service.tagline}/>
-      <main className="max-w-7xl mx-auto px-6 py-20 text-[#071a3d]">
+      <main className="max-w-7xl mx-auto px-6 py-10 text-[#071a3d]">
         
 
        
@@ -135,10 +136,9 @@ export default async function ServiceDetailPage({
           </p>
       
         {/* Service Areas */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 border-b pb-2">
-            Service Areas
-          </h2>
+        <section className="mb-12 mt-10">
+          <Title small="service areas" title="What we cover"/>
+        
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {service.serviceAreas.map((area, idx) => (
               <li
