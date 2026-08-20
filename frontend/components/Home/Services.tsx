@@ -61,7 +61,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
             <div className="flex justify-center gap-2 items-center">
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/hrPeoleAdvisory"}
+                href={"/what-we-do/career-personal-growth"}
               >
                 Learn More
               </Link>
@@ -86,7 +86,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
             <div className="flex justify-center gap-2 items-center">
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/hrPeoleAdvisory"}
+                href={"/what-we-do/training-facilitation"}
               >
                 Learn More
               </Link>

@@ -1,6 +1,14 @@
 import React from "react";
 
-const Header = ({small, text}:{small:string, text:string}) => {
+const Header = ({
+  small,
+  text,
+  subText,
+}: {
+  small: string;
+  text: string;
+  subText?: string;
+}) => {
   return (
     <div className="h-[70vh] relative overflow-hidden w-full ">
       <img
@@ -15,9 +23,8 @@ const Header = ({small, text}:{small:string, text:string}) => {
           >
             {small}
           </p>
-          <h2 className="text-white text-6xl ">{
-            text
-          }</h2>
+          <h2 className="text-white text-6xl ">{text}</h2>
+          {subText ? <p className="text-white font-mulish my-1 font-medium  ">{subText}</p> : ""}
         </div>
       </div>
     </div>
