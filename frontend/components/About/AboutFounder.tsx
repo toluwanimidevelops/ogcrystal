@@ -23,7 +23,7 @@ const AboutFounder = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className={` bg-[#F8F6F1]  p-5 min-h-150 max-md:min-h-75  gap-5 md:p-20 font-medium `}
+          className={` bg-[#EAF2FB]  p-5 min-h-150 max-md:min-h-75  gap-5 md:p-20 font-medium `}
         >
           <motion.p
             variants={itemVariants}
@@ -60,10 +60,10 @@ const AboutFounder = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className={false ? "order-first max-md:order-0" : "order-last"}
+          className={false ? "order-first max-md:order-0" : "order-last max-md:order-first"}
         >
           <img
-            src={"/001.jpg"}
+            src={"/ceo.jpeg"}
             alt="Service"
             className="w-full h-full object-cover"
           />
