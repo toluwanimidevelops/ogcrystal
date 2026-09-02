@@ -2,6 +2,7 @@ import AboutFounder from "@/components/About/AboutFounder";
 import Header from "@/components/About/Header";
 import About from "@/components/Home/About";
 import Logo from "@/components/Home/Logo";
+import OurValues from "@/components/Home/OurValues";
 import { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ const page = () => {
       <Header small="Who we are" text="About Us" />
       <Logo />
       <About titleNotNeeded exemptButton />
-      <AboutFounder/>
+      <AboutFounder />
+      <div className="mt-10"/>
+      <OurValues noPadding/>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import {
   TbCompass,
 } from "react-icons/tb";
 
-const OurValues = () => {
+const OurValues = ({ noPadding }: { noPadding?: boolean }) => {
   const data = [
     {
       icon: (
@@ -77,7 +77,9 @@ const OurValues = () => {
   } as const;
 
   return (
-    <div className="w-full mt-60 py-30 bg-[#071a3d]">
+    <div
+      className={`w-full ${noPadding ? "mt-0" : "mt-60"}  py-30 bg-[#071a3d]`}
+    >
       <div className="max-w-full w-7xl px-6 md:px-12 mx-auto ">
         <Title
           small="our values"

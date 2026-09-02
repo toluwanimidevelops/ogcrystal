@@ -155,9 +155,8 @@ export default async function ServiceDetailPage({
         {/* Target Audience (if available) */}
         {service.primaryAudience && (
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4 border-b pb-2">
-              Primary Audience
-            </h2>
+            <Title small=""  title="Primary Audience"/>
+           
             <div className="flex flex-wrap gap-2">
               {service.primaryAudience.map((audience, idx) => (
                 <span

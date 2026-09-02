@@ -59,7 +59,7 @@ export default function WhyOGCrystal() {
 };
 
   return (
-    <section className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden">
+    <section id="why-og-crystal" className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden">
       <div>
         <Title small="The OG Crystal Difference" title="Why OG Crystal?" />
 
