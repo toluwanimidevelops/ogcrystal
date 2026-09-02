@@ -15,7 +15,7 @@ export interface Comment {
 export interface getAllCommentResponse{
     success: boolean,
     message?: string,
-    comment?: Comment,
+    comment?: Comment[],
 }
 export interface CommentID {
     id: string,

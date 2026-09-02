@@ -9,6 +9,7 @@ import { FiCheckCircle, FiImage } from "react-icons/fi";
 const CreateBlogForm = () => {
   const { createBlog } = useApp();
   const [formData, setFormData] = useState<CreateBlogPayload>({
+    blogId: "",
     imageUrl: "",
     title: "",
     genre: "Technology",

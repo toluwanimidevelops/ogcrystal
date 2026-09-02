@@ -36,7 +36,7 @@ const Page = () => {
   });
 
   const [statsLoading, setStatsLoading] = useState(false);
-  const [statsError, setStatsError] = useState();
+  const [statsError, setStatsError] = useState<unknown>(null);
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
   const [blogLoading, setBlogLoading] = useState<boolean>(false);
@@ -51,7 +51,7 @@ const Page = () => {
     try {
       const data = await getAllComment();
       if (data?.success) {
-        setComments(data.comment as Comment[]);
+        setComments((data.comment as Comment[]) || []);
       } else {
         setCommentsError(data?.message || "Failed to fetch blogs.");
       }
@@ -69,7 +69,7 @@ const Page = () => {
     try {
       const data = await getAllBlogs();
       if (data?.success) {
-        setBlogs(data.blog as Blog[]);
+        setBlogs((data.blog as Blog[]) || []);
       } else {
         setBlogError(data?.message || "Failed to fetch blogs.");
       }
@@ -255,9 +255,10 @@ const Page = () => {
             ) : (
               <div className="flex flex-col gap-2">
                 {comments.slice(0, 3).map((e, ind) => {
+                  const commentId = e._id || (e as any).commentId || "";
                   return (
                     <div
-                      key={e._id || ind}
+                      key={commentId || ind}
                       className="py-3 px-3 flex flex-col gap-1 hover:bg-gray-100/60 bg-gray-50/70 rounded-xl transition-colors group relative border border-gray-100"
                     >
                       <div className="flex items-center justify-between gap-2">
@@ -275,7 +276,7 @@ const Page = () => {
                           </span>
                           {/* DELETE COMMENT BUTTON */}
                           <button
-                            onClick={() => handleDeleteComment(e._id)}
+                            onClick={() => handleDeleteComment(commentId)}
                             title="Delete Comment"
                             className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
                           >
@@ -337,94 +338,100 @@ const Page = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
-              {blogs.map((blog) => (
-                <tr
-                  key={blog._id}
-                  className="hover:bg-gray-50/60 transition-colors"
-                >
-                  <td className="py-3.5 px-4">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={blog.imageUrl}
-                        alt={blog.title}
-                        className="w-10 h-10 rounded-lg object-cover"
-                      />
-                      <span className="font-medium text-gray-800 line-clamp-1 max-w-[240px]">
-                        {blog.title}
+              {blogs.map((blog) => {
+                const targetId = blog._id || blog.blogId || "";
+                return (
+                  <tr
+                    key={targetId || blog.title}
+                    className="hover:bg-gray-50/60 transition-colors"
+                  >
+                    <td className="py-3.5 px-4">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={blog.imageUrl}
+                          alt={blog.title}
+                          className="w-10 h-10 rounded-lg object-cover"
+                        />
+                        <span className="font-medium text-gray-800 line-clamp-1 max-w-[240px]">
+                          {blog.title}
+                        </span>
+                      </div>
+                    </td>
+
+                    <td className="py-3.5 px-4">
+                      <span className="px-2.5 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded-md">
+                        {blog.genre}
                       </span>
-                    </div>
-                  </td>
+                    </td>
 
-                  <td className="py-3.5 px-4">
-                    <span className="px-2.5 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded-md">
-                      {blog.genre}
-                    </span>
-                  </td>
-
-                  <td className="py-3.5 px-4">
-                    <span
-                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        blog.isPublished
-                          ? "bg-green-50 text-green-700 border border-green-200/60"
-                          : "bg-amber-50 text-amber-700 border border-amber-200/60"
-                      }`}
-                    >
-                      {blog.isPublished ? "Published" : "Draft"}
-                    </span>
-                  </td>
-
-                  <td className="py-3.5 px-4 text-gray-500 text-xs">
-                    {blog.publishedAt
-                      ? new Date(blog.publishedAt).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })
-                      : "—"}
-                  </td>
-
-                  <td className="py-3.5 px-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <button
-                        onClick={() =>
-                          handleTogglePublish(
-                            blog._id as string,
-                            !!blog.isPublished,
-                          )
-                        }
-                        title={blog.isPublished ? "Unpublish" : "Publish"}
-                        className={`p-2 rounded-lg transition-colors ${
+                    <td className="py-3.5 px-4">
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                           blog.isPublished
-                            ? "text-amber-600 hover:bg-amber-50"
-                            : "text-green-600 hover:bg-green-50"
+                            ? "bg-green-50 text-green-700 border border-green-200/60"
+                            : "bg-amber-50 text-amber-700 border border-amber-200/60"
                         }`}
                       >
-                        {blog.isPublished ? (
-                          <FiEyeOff size={16} />
-                        ) : (
-                          <FiSend size={16} />
-                        )}
-                      </button>
+                        {blog.isPublished ? "Published" : "Draft"}
+                      </span>
+                    </td>
 
-                      <button
-                        onClick={() => handleEdit(blog._id)}
-                        title="Edit Blog"
-                        className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
-                      >
-                        <FiEdit2 size={16} />
-                      </button>
+                    <td className="py-3.5 px-4 text-gray-500 text-xs">
+                      {blog.publishedAt
+                        ? new Date(blog.publishedAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            },
+                          )
+                        : "—"}
+                    </td>
 
-                      <button
-                        onClick={() => handleDelete(blog._id)}
-                        title="Delete Blog"
-                        className="p-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
-                      >
-                        <FiTrash2 size={16} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    <td className="py-3.5 px-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() =>
+                            handleTogglePublish(
+                              targetId,
+                              !!blog.isPublished,
+                            )
+                          }
+                          title={blog.isPublished ? "Unpublish" : "Publish"}
+                          className={`p-2 rounded-lg transition-colors ${
+                            blog.isPublished
+                              ? "text-amber-600 hover:bg-amber-50"
+                              : "text-green-600 hover:bg-green-50"
+                          }`}
+                        >
+                          {blog.isPublished ? (
+                            <FiEyeOff size={16} />
+                          ) : (
+                            <FiSend size={16} />
+                          )}
+                        </button>
+
+                        <button
+                          onClick={() => handleEdit(targetId)}
+                          title="Edit Blog"
+                          className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
+                        >
+                          <FiEdit2 size={16} />
+                        </button>
+
+                        <button
+                          onClick={() => handleDelete(targetId)}
+                          title="Delete Blog"
+                          className="p-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <FiTrash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 

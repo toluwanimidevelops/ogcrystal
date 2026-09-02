@@ -28,8 +28,11 @@ import {
   FetchBlogResponse,
   DeleteBlogResponse,
   CreateBlogPayload,
+  Blog,
 } from "./blogs/blog";
-export const api = axios.create({ baseURL: "https://ogcrystalserver.vercel.app/" });
+export const api = axios.create({
+  baseURL: "https://ogcrystalserver.vercel.app/",
+});
 
 interface AuthCredentials {
   email: string;
@@ -63,7 +66,10 @@ interface AppContextType {
   getActiveBlogs: () => Promise<FetchBlogResponse>;
   getInActiveBlogs: () => Promise<FetchBlogResponse>;
   getBlogById: (id: ID) => Promise<CreateBlogResponse>;
-  updateBlog: (details: CreateBlogPayload) => Promise<CreateBlogResponse>;
+  // UpdateBlog payload requires blogId
+  updateBlog: (
+    payload: Partial<Blog> & { blogId: string },
+  ) => Promise<CreateBlogResponse>;
   deleteBlog: (id: ID) => Promise<DeleteBlogResponse>;
   updateBlogStatus: (details: blogStatusPayload) => Promise<CreateBlogResponse>;
   isAuthenticated: boolean;
