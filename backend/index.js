@@ -7,6 +7,8 @@ import AuthRouter from "./Routes/userRoutes.js"
 import BlogRouter from "./Routes/blogRoutes.js"
 import commentRoutes from "./Routes/commentsRoutes.js"
 import mailingRoutes from "./Routes/mailingRoutes.js"
+
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 const app = express();
 app.use(express.json());
 app.use(cors());
