@@ -29,7 +29,7 @@ import {
   DeleteBlogResponse,
   CreateBlogPayload,
 } from "./blogs/blog";
-export const api = axios.create({ baseURL: "http://localhost:5000/" });
+export const api = axios.create({ baseURL: "https://ogcrystalserver.vercel.app/" });
 
 interface AuthCredentials {
   email: string;
