@@ -213,9 +213,7 @@ const Page = () => {
         <div className="min-h-[328px] flex flex-col justify-between w-full bg-white rounded-2xl p-6 ">
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h1 className="text-md text-gray-800 ">
-                Recent Comments
-              </h1>
+              <h1 className="text-md text-gray-800 ">Recent Comments</h1>
               <span className="text-xs text-gray-400 font-medium">
                 {comments.length} total
               </span>
@@ -304,9 +302,7 @@ const Page = () => {
 
         {/* MAILING LIST CARD */}
         <div className="min-h-82 w-full bg-white rounded-2xl p-6 ">
-          <h1 className="text-md  text-gray-800 mb-2">
-            Mailing List
-          </h1>
+          <h1 className="text-md  text-gray-800 mb-2">Mailing List</h1>
           <p className="text-xs text-gray-500">
             Recent emails that joined your mailing list.
           </p>
@@ -317,9 +313,7 @@ const Page = () => {
       <div className="w-full bg-white rounded-2xl p-6  flex flex-col gap-4">
         <div className="flex items-center justify-between pb-2 border-b border-gray-100">
           <div>
-            <h2 className="text-md  text-gray-800">
-              Recent Blogs
-            </h2>
+            <h2 className="text-md  text-gray-800">Recent Blogs</h2>
             <p className="text-xs text-gray-500">
               Manage, edit, and publish your latest articles
             </p>
@@ -393,10 +387,7 @@ const Page = () => {
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() =>
-                            handleTogglePublish(
-                              targetId,
-                              !!blog.isPublished,
-                            )
+                            handleTogglePublish(targetId, !!blog.isPublished)
                           }
                           title={blog.isPublished ? "Unpublish" : "Publish"}
                           className={`p-2 rounded-lg transition-colors ${

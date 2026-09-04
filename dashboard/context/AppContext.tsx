@@ -30,6 +30,8 @@ import {
   CreateBlogPayload,
   Blog,
 } from "./blogs/blog";
+import { toast } from "react-hot-toast/headless";
+import toast from "react-hot-toast";
 export const api = axios.create({
   baseURL: "https://ogcrystalserver.vercel.app/",
 });
@@ -104,6 +106,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       });
       setIsAuthenticated(true);
     } catch (error) {
+      toast.error("Session expired. Please log in again.");
       logout();
     } finally {
       setIsLoading(false);
@@ -115,8 +118,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       return response.data;
     } catch (err) {
       const error = err as AxiosError<{ message: string }>;
+      toast.error(error.response?.data?.message || "Failed to Fetch Dashboard Status");
       throw new Error(
-        error.response?.data?.message || "Failed to Fetch Dashboard Staatus",
+        error.response?.data?.message || "Failed to Fetch Dashboard Status",
       );
     }
   };
@@ -137,6 +141,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       }
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
+      toast.error(err.response?.data?.message || "Login failed");
       throw new Error(err.response?.data?.message || "Login failed");
     }
   };
@@ -144,6 +149,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setToken(null);
     setIsAuthenticated(false);
+    toast.success("Logged out successfully");
     localStorage.removeItem("adminToken");
     delete api.defaults.headers.common["Authorization"];
     router.push("/");

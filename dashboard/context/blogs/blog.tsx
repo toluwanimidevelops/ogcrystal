@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import { api } from "../AppContext";
+import { toast } from "react-hot-toast/headless";
 
 export interface Blog {
   _id?: string;
@@ -39,9 +40,11 @@ export const createBlog = async (
 ): Promise<CreateBlogResponse> => {
   try {
     const response = await api.post<CreateBlogResponse>("/blogs", payload);
+    toast.success("Blog created successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to create blog");
     throw new Error(err.response?.data?.message || "Failed to create blog");
   }
 };
@@ -50,9 +53,11 @@ export const createBlog = async (
 export const getAllBlogs = async (): Promise<FetchBlogResponse> => {
   try {
     const response = await api.get<FetchBlogResponse>("/getAllBlogs");
+    toast.success("Blogs fetched successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to fetch blogs");
     throw new Error(err.response?.data?.message || "Failed to fetch blogs");
   }
 };
@@ -61,9 +66,11 @@ export const getAllBlogs = async (): Promise<FetchBlogResponse> => {
 export const getActiveBlogs = async (): Promise<FetchBlogResponse> => {
   try {
     const response = await api.get<FetchBlogResponse>("/getActiveBlogs");
+    toast.success("Active blogs fetched successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to fetch active blogs");
     throw new Error(err.response?.data?.message || "Failed to fetch active blogs");
   }
 };
@@ -71,10 +78,12 @@ export const getActiveBlogs = async (): Promise<FetchBlogResponse> => {
 export const getInActiveBlogs = async (): Promise<FetchBlogResponse> => {
   try {
     const response = await api.get<FetchBlogResponse>("/getInActiveBlogs");
+    toast.success("Inactive blogs fetched successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
-    throw new Error(err.response?.data?.message || "Failed to fetch active blogs");
+    toast.error(err.response?.data?.message || "Failed to fetch inactive blogs");
+    throw new Error(err.response?.data?.message || "Failed to fetch inactive blogs");
   }
 };
 
@@ -82,9 +91,11 @@ export const getInActiveBlogs = async (): Promise<FetchBlogResponse> => {
 export const getBlogById = async ({ id }: { id: string }): Promise<CreateBlogResponse> => {
   try {
     const response = await api.get<CreateBlogResponse>(`/blogs/${id}`);
+    toast.success("Blog fetched successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to fetch blog");
     throw new Error(err.response?.data?.message || "Failed to fetch blog");
   }
 };
@@ -96,9 +107,11 @@ export const updateBlog = async (
   try {
     const { blogId, ...data } = payload;
     const response = await api.put<CreateBlogResponse>(`/blogs/${blogId}`, data);
+    toast.success("Blog updated successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to update blog");
     throw new Error(err.response?.data?.message || "Failed to update blog");
   }
 };
@@ -107,9 +120,11 @@ export const updateBlog = async (
 export const deleteBlog = async ({ id }: { id: string }): Promise<DeleteBlogResponse> => {
   try {
     const response = await api.delete<DeleteBlogResponse>(`/blogs/${id}`);
+    toast.success("Blog deleted successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to delete blog");
     throw new Error(err.response?.data?.message || "Failed to delete blog");
   }
 };
@@ -126,9 +141,11 @@ export const updateBlogStatus = async ({
     const response = await api.put<CreateBlogResponse>(`/updateblogstatus/${id}`, {
       isPublished,
     });
+    toast.success("Blog status updated successfully");
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to update blog status");
     throw new Error(err.response?.data?.message || "Failed to update blog status");
   }
 };

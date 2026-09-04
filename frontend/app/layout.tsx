@@ -4,6 +4,8 @@ import { Geist, Geist_Mono, Mulish } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Global/NavBar";
 import Footer from "@/components/Global/Footer";
+import { Toaster } from "react-hot-toast";
+import { AppProvider } from "@/context/AppContext";
 const mulish = Mulish({
   subsets: ["latin"],
   display: "swap",
@@ -14,8 +16,8 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist',
+  subsets: ["latin"],
+  variable: "--font-geist",
 });
 
 const geistMono = Geist_Mono({
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   description:
     "OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.",
   icons: {
-      icon: '/logo/favicon.png',
-    }
+    icon: "/logo/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -46,9 +48,12 @@ export default function RootLayout({
       className={`${geistSans.className} ${geist.className} ${geistMono.variable} ${mulish.className} ${geistMono.variable} ${mulish.variable} bg-white h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+        <Toaster />
+        <AppProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </AppProvider>
       </body>
     </html>
   );

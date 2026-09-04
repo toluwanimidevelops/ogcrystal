@@ -5,7 +5,7 @@ const Header = ({
   text,
   subText,
 }: {
-  small: string;
+  small?: string;
   text: string;
   subText?: string;
 }) => {
@@ -18,13 +18,21 @@ const Header = ({
       <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/95 z-10" />
       <div className="absolute inset-0 w-full flex justify-center items-center h-ful z-20">
         <div className="w-7xl  max-w-full h-full flex flex-col justify-center   mx-auto px-6 md:px-12 ">
-          <p
-            className={`text-center px-4 py-2 rounded-2xl w-fit bg-white/20   tracking-[0.3em] uppercase font-mulish  text-[10px]  text-white  font-medium`}
-          >
-            {small}
-          </p>
+          {small && (
+            <p
+              className={`text-center px-4 py-2 rounded-2xl w-fit bg-white/20   tracking-[0.3em] uppercase font-mulish  text-[10px]  text-white  font-medium`}
+            >
+              {small}
+            </p>
+          )}
           <h2 className="text-white text-6xl ">{text}</h2>
-          {subText ? <p className="text-white font-mulish my-1 font-medium  ">{subText}</p> : ""}
+          {subText ? (
+            <p className="text-white font-mulish my-1 font-medium  ">
+              {subText}
+            </p>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
