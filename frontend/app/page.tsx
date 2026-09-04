@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'OG Crystal Services | People Advisory, HR & Career Growth',
     description: 'OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.',
-    url: 'https://ogcrystalservices.com',
+    url: 'https://www.ogcrystalservices.com',
     siteName: 'Og Crystal Services',
     images: [
       {
-        url: 'https://example.com/ceo.jpeg',
+        url: 'https://ogcrystalservices.com/ceo.jpeg',
         width: 1200,
         height: 630,
         alt: 'Open Graph Image Alt Text',
