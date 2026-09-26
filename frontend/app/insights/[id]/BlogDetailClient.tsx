@@ -246,13 +246,13 @@ const BlogDetailClient = ({ id, initialBlog }: BlogDetailClientProps) => {
                     {comments.map((item) => (
                       <div
                         key={item._id}
-                        className="p-3  max-w-full w-[500px] max-md:w-full rounded-md border border-gray-200 bg-gray-50"
+                        className="p-3  w-full max-w-[500px] overflow-hidden  rounded-md border border-gray-200 bg-gray-50"
                       >
                         <div className="flex justify-between ">
                           <p className="font-semibold text-sm">{item.name}</p>
                           <p>{moment(item.createdAt).fromNow()}</p>
                         </div>
-                        <p className="text-sm text-wrap text-gray-600">
+                        <p className="text-sm break-words break-all whitespace-normal text-wrap text-gray-600">
                           {item.comment}
                         </p>
                       </div>

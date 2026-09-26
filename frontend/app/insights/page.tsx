@@ -40,7 +40,7 @@ const Page = () => {
         }
         text={"Insights"}
       />
-      <div className="max-w-full w-7xl px-6 md:px-12 grid mx-auto my-12 overflow-hidden grid-cols-3 gap-6">
+      <div className="max-w-full w-7xl px-6 md:px-12 grid mx-auto my-12 overflow-hidden grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-6">
         {loading && <p className="col-span-3">Loading blogs...</p>}
         {error && <p className="col-span-3 text-red-500">{error}</p>}
         {!loading && !error && blogs.length === 0 && (
