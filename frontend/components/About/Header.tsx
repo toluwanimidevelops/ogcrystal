@@ -8,7 +8,7 @@ const Header = ({
 }: {
   small?: string;
   text: string;
-  image: string;
+  image?: string;
   subText?: string;
 }) => {
   return (
