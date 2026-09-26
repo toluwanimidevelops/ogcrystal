@@ -3,18 +3,17 @@ import React from "react";
 const Header = ({
   small,
   text,
+  image = "/001.jpg",
   subText,
 }: {
   small?: string;
   text: string;
+  image: string;
   subText?: string;
 }) => {
   return (
     <div className="h-[70vh] relative overflow-hidden w-full ">
-      <img
-        src="/001.jpg"
-        className="w-full h-full object-cover object-center"
-      />
+      <img src={image} className="w-full h-full object-cover object-center" />
       <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/95 z-10" />
       <div className="absolute inset-0 w-full flex justify-center items-center h-ful z-20">
         <div className="w-7xl  max-w-full h-full flex flex-col justify-center   mx-auto px-6 md:px-12 ">

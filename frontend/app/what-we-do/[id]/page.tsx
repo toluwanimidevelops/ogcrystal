@@ -9,6 +9,7 @@ import Title from "@/components/Global/Title";
 export interface ServiceDetail {
   id: string;
   number: string;
+  image: string;
   title: string;
   tagline: string;
   description: string;
@@ -21,6 +22,7 @@ export interface ServiceDetail {
 export const servicesData: ServiceDetail[] = [
   {
     id: "hrPeoleAdvisory",
+    image: "/009.jpg",
     number: "01",
     title: "HR & People Advisory",
     tagline:
@@ -52,6 +54,7 @@ export const servicesData: ServiceDetail[] = [
   },
   {
     id: "career-personal-growth",
+    image: "/011.jpg",
     number: "02",
     title: "Career & Personal Growth Advisory",
     tagline:
@@ -79,6 +82,7 @@ export const servicesData: ServiceDetail[] = [
   },
   {
     id: "training-facilitation",
+    image: "/010.jpg",
     number: "03",
     title: "Training & Facilitation",
     headline: "Learning that moves people forward.",
@@ -123,22 +127,21 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <Header small="Service Overview" text={service.title} subText={service.tagline}/>
+      <Header
+        small="Service Overview"
+        image={service.image}
+        text={service.title}
+        subText={service.tagline}
+      />
       <main className="max-w-7xl mx-auto px-6 py-10 text-[#071a3d]">
-        
+        <p className="text-[17px] text-[#7a7a7a] font-normal">
+          {service.description}
+        </p>
 
-       
-
-
-        
-          <p className="text-[17px] text-[#7a7a7a] font-normal">
-            {service.description}
-          </p>
-      
         {/* Service Areas */}
         <section className="mb-12 mt-10">
-          <Title small="service areas" title="What we cover"/>
-        
+          <Title small="service areas" title="What we cover" />
+
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {service.serviceAreas.map((area, idx) => (
               <li
@@ -155,9 +158,9 @@ export default async function ServiceDetailPage({
         {/* Target Audience (if available) */}
         {service.primaryAudience && (
           <section className="mb-12">
-            <Title small=""  title="Primary Audience"/>
-           
-            <div className="flex flex-wrap gap-2">
+            <Title small="" title="Primary Audience" />
+
+            <div className="flex flex-wrap justify-center gap-2">
               {service.primaryAudience.map((audience, idx) => (
                 <span
                   key={idx}
@@ -176,16 +179,16 @@ export default async function ServiceDetailPage({
           </p>
         )}
 
-        <div className="flex gap-4">
+        <div className="flex justify-center gap-4">
           <Link
             href="/contact"
-            className="py-3 px-8 text-white bg-[#B8944D] hover:bg-[#a18140] transition font-medium rounded-md"
+            className="px-5  max-sm:px-3 cursor-pointer py-2.5 mt-4 text-sm bg-[#b8944d] hover:scale-105 transition duration-300 text-white"
           >
             Book a Consultation
           </Link>
           <Link
             href="/what-we-do"
-            className="py-3 px-8 text-[#071a3d] border border-[#071a3d] hover:bg-gray-100 transition font-medium rounded-md"
+            className="px-5 hover:bg-[#071a3d] hover:text-white text-[#071a3d]  max-sm:px-3 cursor-pointer py-2.5 mt-4 text-sm max-sm:text-xs border  border-[#071a3d] hover:scale-105 transition duration-300 "
           >
             Back to Services
           </Link>

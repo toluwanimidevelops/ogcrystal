@@ -27,7 +27,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
       <div className="flex flex-col max-md:gap-10">
         <ServicesCard
           backgroundColor="bg-[#F8F6F1]"
-          image="/001.jpg"
+          image="/009.jpg"
           imagePosition="left"
           text1="Og Crystal Services"
           text2="HR & People Advisory"
@@ -52,7 +52,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
 
         <ServicesCard
           backgroundColor="bg-[#EAF2FB]"
-          image="/002.jpg"
+          image="/011.jpg"
           text1="Og Crystal Services"
           text2="Career & Personal Growth Advisory"
           text3="Career growth is not always a straight line. There are moments when people need support to understand their strengths, make better career decisions, prepare for opportunities, navigate transitions or rebuild confidence."
@@ -77,7 +77,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
 
         <ServicesCard
           backgroundColor="bg-[#2F73C9]/30"
-          image="/001.jpg"
+          image="/010.jpg"
           imagePosition="left"
           text1="OG crystal Services"
           text2="Training & Facilitation"

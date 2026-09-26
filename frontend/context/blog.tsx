@@ -44,13 +44,24 @@ export const getActiveBlogs = async (): Promise<FetchBlogResponse> => {
 };
 
 // Get Blog by Id
-export const getBlogById = async ({
-  id,
-}: {
-  id: string;
-}): Promise<CreateBlogResponse> => {
+export const getBlogById = async (id: string): Promise<CreateBlogResponse> => {
   try {
     const response = await api.get<CreateBlogResponse>(`/activeblogs/${id}`);
+    return response.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message: string }>;
+    toast.error(err.response?.data?.message || "Failed to fetch blog");
+    throw new Error(err.response?.data?.message || "Failed to fetch blog");
+  }
+};
+// Get RelatedBlog by Id
+export const getRelatedBlogById = async (
+  id: string,
+): Promise<FetchBlogResponse> => {
+  try {
+    const response = await api.get<FetchBlogResponse>(
+      `/activeblogs/findRelated/${id}`,
+    );
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;

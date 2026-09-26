@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div >
-      <Header small="Who we are" text="About Us" />
+      <Header image="/010.jpg" small="Who we are" text="About Us" />
       <Logo />
       <About titleNotNeeded exemptButton />
       <AboutFounder />

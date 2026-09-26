@@ -38,7 +38,7 @@ const Footer = () => {
 
       {/* Quote Container */}
       <div className="px-4 md:px-12 overflow-hidden">
-        <Cta/>
+        <Cta />
       </div>
 
       {/* Footer Main Section */}
@@ -61,7 +61,7 @@ const Footer = () => {
                   className="w-15"
                   src="/logo/ogcrystalblack.png"
                   alt="Logo"
-                   loading="lazy"
+                  loading="lazy"
                 />
               </a>
               <p className="text-sm/6 text-neutral-600 max-w-96">
@@ -163,33 +163,7 @@ const Footer = () => {
             <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-28 items-start">
               {/* Products */}
               <motion.div variants={itemVariants}>
-                <h3 className="font-medium text-sm mb-4">Products</h3>
-                <ul className="space-y-3 text-sm text-neutral-800">
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Components
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Templates
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Icons
-                    </a>
-                  </li>
-                </ul>
+                {/* <h3 className="font-medium text-sm mb-4">Products</h3> */}
               </motion.div>
 
               {/* Resources */}
@@ -198,42 +172,10 @@ const Footer = () => {
                 <ul className="space-y-3 text-sm text-neutral-800">
                   <li>
                     <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      PrebuiltUI
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Templates
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Components
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
+                      href="/insights"
                       className="hover:text-neutral-500 transition-colors"
                     >
                       Blogs
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="hover:text-neutral-500 transition-colors"
-                    >
-                      Store
                     </a>
                   </li>
                 </ul>
@@ -248,7 +190,7 @@ const Footer = () => {
                 <ul className="space-y-3 text-sm text-neutral-800">
                   <li>
                     <a
-                      href="#"
+                      href="/about"
                       className="hover:text-neutral-500 transition-colors"
                     >
                       About
@@ -256,10 +198,10 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/about/#founder"
                       className="hover:text-neutral-500 transition-colors"
                     >
-                      Vision
+                      Founder
                     </a>
                   </li>
                   <li className="flex items-center gap-2">
@@ -267,23 +209,20 @@ const Footer = () => {
                       href="#"
                       className="hover:text-neutral-500 transition-colors"
                     >
-                      Careers
+                      What we do
                     </a>
-                    <span className="text-[11px] px-2 py-0.5 rounded-full bg-neutral-50 border border-neutral-400 text-neutral-700">
-                      HIRING
-                    </span>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/insights"
                       className="hover:text-neutral-500 transition-colors"
                     >
-                      Privacy policy
+                     Insight
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/contact"
                       className="hover:text-neutral-500 transition-colors"
                     >
                       Contact Us

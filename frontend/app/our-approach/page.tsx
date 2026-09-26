@@ -14,7 +14,7 @@ const page = () => {
   return (
     <div>
       <Header small="The Process" text='Our Approach' />
-      <div className="max-w-full my-20 gap-5  grid grid-cols-3 w-7xl px-6 md:px-12 mx-auto">
+      <div className="max-w-full my-20 gap-5  grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 w-7xl px-6 md:px-12 mx-auto">
         {
           lists.map((list, index) => (
             <div key={index} className='flex rounded-2xl p-10 bg-[#EAF2FB]/50 items-center text-center gap-4 max-md:gap-2 flex-col  '>

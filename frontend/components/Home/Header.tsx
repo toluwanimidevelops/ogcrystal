@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
-  { images: "/001.jpg", text: "Better People" },
-  { images: "/002.jpg", text: "Better Work" },
-  { images: "/001.jpg", text: "Better Growth" },
+  { images: "/007.jpg", text: "Better People" },
+  { images: "/005.jpg", text: "Better Work" },
+  { images: "/004.jpg", text: "Better Growth" },
 ];
 
 export default function Header() {

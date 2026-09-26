@@ -80,7 +80,26 @@ export const getBlogById = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
-
+// Get related Blog based on the id
+export const getRelatedBlog = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    const relatedBlog = await Blog.find({
+      $and: [{ genre: blog.genre }, { isPublished: true }, { _id: { $ne: req.params.id } }],
+    }).limit(3).sort({publishedDate: -1});
+    if (!relatedBlog) {
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "No blog based on this genre has been published",
+        });
+    }
+    res.status(200).json({success: true, blog: relatedBlog})
+  } catch (error) {
+    res.status(400).message({ success: false, message: err.message });
+  }
+};
 // Get Blog by Id for Admin
 export const getBlogByIdAdmin = async (req, res) => {
   try {
@@ -177,16 +196,17 @@ export const deleteBlog = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
-// Get Dashboard 
+// Get Dashboard
 export const getDashboard = async (req, res) => {
   try {
     // Run queries concurrently for better performance
-    const [activeBlogs, inActiveBlogs, comments, mailingList] = await Promise.all([
-      Blog.countDocuments({ isPublished: true }),
-      Blog.countDocuments({ isPublished: false }),
-      Comment.countDocuments(),
-      MailingList.countDocuments(),
-    ]);
+    const [activeBlogs, inActiveBlogs, comments, mailingList] =
+      await Promise.all([
+        Blog.countDocuments({ isPublished: true }),
+        Blog.countDocuments({ isPublished: false }),
+        Comment.countDocuments(),
+        MailingList.countDocuments(),
+      ]);
 
     res.status(200).json({
       success: true,
