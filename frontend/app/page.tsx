@@ -1,3 +1,4 @@
+import Floatters from "@/components/Global/Floatters";
 import Navbar from "@/components/Global/NavBar";
 import About from "@/components/Home/About";
 import Header from "@/components/Home/Header";
@@ -10,21 +11,22 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title:
     "Main Home - OG Crystal Services | People Advisory, HR & Career Growth",
-    openGraph: {
-    title: 'OG Crystal Services | People Advisory, HR & Career Growth',
-    description: 'OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.',
-    url: 'https://www.ogcrystalservices.com',
-    siteName: 'Og Crystal Services',
+  openGraph: {
+    title: "OG Crystal Services | People Advisory, HR & Career Growth",
+    description:
+      "OG Crystal Services provides practical people and business advisory for startups, SMEs, professionals and individuals, covering HR advisory, recruitment, culture, training, career guidance and professional growth.",
+    url: "https://www.ogcrystalservices.com",
+    siteName: "Og Crystal Services",
     images: [
       {
-        url: 'https://ogcrystalservices.com/ceo.jpeg',
+        url: "https://ogcrystalservices.com/ceo.jpeg",
         width: 1200,
         height: 630,
-        alt: 'Open Graph Image Alt Text',
+        alt: "Open Graph Image Alt Text",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
 };
 
@@ -43,6 +45,7 @@ export default function Page() {
       <Services />
       <OurValues />
       <WhyOGCrystal />
+      <Floatters />
     </main>
   );
 }
