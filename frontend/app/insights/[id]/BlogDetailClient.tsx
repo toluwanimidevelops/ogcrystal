@@ -9,6 +9,8 @@ import moment from "moment";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { IoMdArrowBack } from "react-icons/io";
 import BlogCard from "@/components/blogCard";
+import BlogCardSkeleton from "@/components/blogCardSkelton";
+import BlogDetailSkeleton from "./BlogDetailSkelton";
 
 interface BlogDetailClientProps {
   id: string;
@@ -157,7 +159,7 @@ const BlogDetailClient = ({ id, initialBlog }: BlogDetailClientProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <BlogDetailSkeleton/>;
   if (error) return <div>Error: {error}</div>;
 
   return (

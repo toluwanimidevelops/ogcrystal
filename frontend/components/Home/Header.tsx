@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
   { images: "/007.jpg", text: "Better People" },
-  { images: "/005.jpg", text: "Better Work" },
-  { images: "/004.jpg", text: "Better Growth" },
+  { images: "/005.jpg", text: "Exceptional Experiences" },
+  { images: "/004.jpg", text: "Lasting Growth" },
 ];
 
 export default function Header() {
@@ -79,7 +79,7 @@ export default function Header() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white text-5xl md:text-9xl font-extrabold tracking-tighter drop-shadow-lg"
+                className="text-white text-5xl  md:text-9xl font-extrabold max-w-3xl mx-auto text-center tracking-tighter drop-shadow-lg"
               >
                 {currentSlide.text}
               </motion.p>

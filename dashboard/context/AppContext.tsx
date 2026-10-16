@@ -30,7 +30,7 @@ import {
   CreateBlogPayload,
   Blog,
 } from "./blogs/blog";
-import { toast } from "react-hot-toast/headless";
+
 import toast from "react-hot-toast";
 export const api = axios.create({
   baseURL: "https://ogcrystalserver.vercel.app/",

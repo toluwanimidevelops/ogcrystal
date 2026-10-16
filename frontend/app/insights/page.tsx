@@ -6,6 +6,7 @@ import { Blog } from "@/context/blog";
 import { useApp } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import BlogCard from "@/components/blogCard";
+import BlogCardSkeleton from "@/components/blogCardSkelton";
 const Page = () => {
   const { getActiveBlogs } = useApp()!;
   const [blogs, setBlogs] = React.useState<Blog[]>([]);
@@ -41,7 +42,10 @@ const Page = () => {
         text={"Insights"}
       />
       <div className="max-w-full w-7xl px-6 md:px-12 grid mx-auto my-12 overflow-hidden grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-6">
-        {loading && <p className="col-span-3">Loading blogs...</p>}
+        {loading &&
+          Array(6)
+            .fill(0)
+            .map((_, ind) => <BlogCardSkeleton key={ind} />)}
         {error && <p className="col-span-3 text-red-500">{error}</p>}
         {!loading && !error && blogs.length === 0 && (
           <p className="col-span-3 text-gray-500">No blogs available.</p>

@@ -18,7 +18,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center tracking-[0.3em] uppercase font-mulish mb-20 text-[10px] text-[#838280] font-medium"
         >
-          These are the three pillars of the Og Crystal Services
+          These are the Four pillars of the Og Crystal Services
         </motion.p>
       ) : (
         ""
@@ -79,6 +79,30 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           backgroundColor="bg-[#2F73C9]/30"
           image="/010.jpg"
           imagePosition="left"
+          text1="OG crystal Services"
+          text2="Training & Facilitation"
+          text3="Learning that moves people forward. Training should not simply fill a room and produce certificates. It should change something. We design and facilitate practical learning experiences that help people understand better, work better and perform better."
+          buttons={
+            <div className="flex justify-center gap-2 items-center">
+              <Link
+                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
+                href={"/what-we-do/training-facilitation"}
+              >
+                Learn More
+              </Link>
+              <Link
+                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
+                href={"/contact"}
+              >
+                Contact Us
+              </Link>
+            </div>
+          }
+        />
+        <ServicesCard
+          backgroundColor="bg-[#f8f6f1]"
+          image="/003.jpg"
+          imagePosition="right"
           text1="OG crystal Services"
           text2="Training & Facilitation"
           text3="Learning that moves people forward. Training should not simply fill a room and produce certificates. It should change something. We design and facilitate practical learning experiences that help people understand better, work better and perform better."

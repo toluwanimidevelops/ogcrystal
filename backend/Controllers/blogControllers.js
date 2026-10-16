@@ -85,17 +85,21 @@ export const getRelatedBlog = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     const relatedBlog = await Blog.find({
-      $and: [{ genre: blog.genre }, { isPublished: true }, { _id: { $ne: req.params.id } }],
-    }).limit(3).sort({publishedDate: -1});
+      $and: [
+        { genre: blog.genre },
+        { isPublished: true },
+        { _id: { $ne: req.params.id } },
+      ],
+    })
+      .limit(3)
+      .sort({ publishedDate: -1 });
     if (!relatedBlog) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "No blog based on this genre has been published",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "No blog based on this genre has been published",
+      });
     }
-    res.status(200).json({success: true, blog: relatedBlog})
+    res.status(200).json({ success: true, blog: relatedBlog });
   } catch (error) {
     res.status(400).message({ success: false, message: err.message });
   }

@@ -44,28 +44,35 @@ const About = ({
       >
         {/* Left Column */}
         <motion.div className="flex-1" variants={itemVariants}>
-          <p>OG Crystal Services: People. Performance. Purpose.</p>
-          <p className="mt-2">
-            We help startups, growing businesses, professionals and individuals
-            navigate people, workplace and career challenges with practical
-            advice, strategic HR expertise and solutions designed around where
-            they are and where they want to go.
+          <p>
+            At OG Crystal Services Limited, we believe that lasting business
+            growth begins with people and is strengthened by the experiences
+            organisations create.
           </p>
           <p className="mt-2">
-            Growth is built by people. Every business begins with people. Every
-            career is shaped by decisions. Every season of growth comes with
-            questions. At OG Crystal, we help people and growing businesses
-            navigate those questions with practical guidance, professional
-            expertise and people-focused solutions. way forward.
+            Every successful organisation needs more than good ideas and
+            ambitious goals. It needs capable people, effective leadership,
+            sound processes, and a clear understanding of how its people and
+            customers experience the business. When these elements work
+            together, organisations are better positioned to perform, build
+            trust, and grow sustainably.
           </p>
           <p className="mt-2">
-            A business may be growing but struggling with its people. A founder
-            may know the business needs structure but not know where to start. A
-            professional may be capable but unsure about the next move. A
-            graduate may simply need someone to help them see possibilities they
-            have not considered. That is where OG Crystal comes in. We listen,
-            understand the real issue, bring perspective and help turn
-            uncertainty into a practical.
+            We partner with business owners, founders, and leadership teams to
+            make that happen.
+          </p>
+          <p className="mt-2">
+            Through our integrated approach to Human Resources Consulting,
+            People Advisory, Customer Experience, and Learning and Development,
+            we help organisations address people and business challenges with
+            practical solutions that create meaningful, lasting value.
+          </p>
+          <p className="mt-2">
+            Our work spans the employee and customer experience. We help
+            businesses strengthen their HR foundations, improve recruitment and
+            talent management, develop leaders, build effective teams, establish
+            people policies and processes, and nurture workplace cultures where
+            people can contribute and thrive.
           </p>
           {!exemptButton && (
             <motion.button
@@ -80,31 +87,33 @@ const About = ({
 
         {/* Right Column */}
         <motion.div className="flex-1" variants={itemVariants}>
-          <p>More than advice. A trusted partner in growth.</p>
-          <p className="mt-2">
-            OG Crystal Services Limited is an advisory business built around a
-            simple belief: when people grow, businesses grow.
+         
+          <p>
+            We also help organisations improve customer service, strengthen
+            service delivery, and create customer experiences that build
+            confidence, encourage loyalty, and support long-term business
+            relationships. The way people are led, supported, and equipped to
+            work has a direct influence on the experiences they deliver.
           </p>
           <p className="mt-2">
-            We partner with organizations and individuals to solve
-            people-related challenges, strengthen performance and create
-            pathways for meaningful growth.
+            Beyond organisational consulting, we support individual and
+            professional development through coaching, training, and
+            facilitation. Our goal is to equip people with the knowledge,
+            skills, and confidence to grow, lead more effectively, and make a
+            meaningful contribution wherever they work.
           </p>
           <p className="mt-2">
-            Our approach combines professional expertise with a human
-            understanding of people, because behind every business challenge is
-            a people story.
+            We recognise that every organisation has its own realities,
+            priorities, and ambitions. That is why we take a thoughtful,
+            practical, and tailored approach to our work, focusing on solutions
+            that address real challenges, strengthen capabilities, and support
+            measurable progress.
           </p>
           <p className="mt-2">
-            We do not believe in cookie-cutter solutions. Every business, team
-            and individual has a unique context. Our role is to listen,
-            understand, advise and help create a practical path forward.
-          </p>
-          <p className="mt-2">
-            OG Crystal is beginning with People Advisory as its flagship
-            practice. As the wider business develops, additional advisory and
-            service areas may be introduced under the OG Crystal Services
-            umbrella without changing the core brand philosophy.
+            At OG Crystal Services Limited, our commitment is to provide trusted
+            guidance, practical expertise, and meaningful support that help
+            organisations get more from their people, create better experiences
+            for their customers, and build for the future.
           </p>
         </motion.div>
       </motion.div>
