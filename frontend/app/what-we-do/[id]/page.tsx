@@ -24,11 +24,11 @@ export const servicesData: ServiceDetail[] = [
     id: "hrPeoleAdvisory",
     image: "/009.jpg",
     number: "01",
-    title: "HR & People Advisory",
+    title: "People Advisory and HR Consulting",
     tagline:
       "Helping growing businesses build the people side of their business properly.",
     description:
-      "Growing businesses often reach a point where informal ways of managing people are no longer enough. You need structure, clear roles, practical systems, the right talent and a culture that can support where the business is going. We help businesses build and strengthen those foundations.",
+      "Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture.",
     serviceAreas: [
       "HR Advisory & Strategy",
       "HR Policies, Processes & Documentation",

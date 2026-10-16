@@ -30,8 +30,8 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           image="/009.jpg"
           imagePosition="left"
           text1="Og Crystal Services"
-          text2="HR & People Advisory"
-          text3="Helping growing businesses build the people side of their business properly. Growing businesses often reach a point where informal ways of managing people are no longer enough."
+          text2="People Advisory and HR Consulting"
+          text3="Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture."
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
@@ -104,16 +104,11 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           image="/003.jpg"
           imagePosition="right"
           text1="OG crystal Services"
-          text2="Training & Facilitation"
-          text3="Learning that moves people forward. Training should not simply fill a room and produce certificates. It should change something. We design and facilitate practical learning experiences that help people understand better, work better and perform better."
+          text2="Customer Experience and Service Excellence"
+          text3="Help businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
           buttons={
             <div className="flex justify-center gap-2 items-center">
-              <Link
-                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/training-facilitation"}
-              >
-                Learn More
-              </Link>
+             
               <Link
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
