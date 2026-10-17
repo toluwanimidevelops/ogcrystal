@@ -7,6 +7,7 @@ import AuthRouter from "./Routes/userRoutes.js";
 import BlogRouter from "./Routes/blogRoutes.js";
 import commentRoutes from "./Routes/commentsRoutes.js";
 import mailingRoutes from "./Routes/mailingRoutes.js";
+import contactRoutes from "./Routes/contactRoutes.js";
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
@@ -22,6 +23,7 @@ app.use("/", AuthRouter);
 app.use("/", BlogRouter);
 app.use("/", commentRoutes);
 app.use("/", mailingRoutes);
+app.use("/contact", contactRoutes);
 
 const PORT = process.env.PORT || 5000;
 
