@@ -125,7 +125,7 @@ const Page = () => {
           <textarea
             id="message"
             name="message"
-            rows="4"
+            rows={4}
             required
             value={data.message}
             onChange={handleInputChange}
