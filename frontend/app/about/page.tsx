@@ -4,7 +4,7 @@ import About from "@/components/Home/About";
 import Logo from "@/components/Home/Logo";
 import OurValues from "@/components/Home/OurValues";
 import { Metadata } from "next";
-import React from "react";
+
 export const metadata: Metadata = {
   title:
     "About - OG Crystal Services | People Advisory, HR & Career Growth",

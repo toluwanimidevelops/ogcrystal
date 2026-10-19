@@ -3,9 +3,13 @@ import Title from "@/components/Global/Title";
 import { useApp } from "@/context/AppContext";
 import { ContactFormData } from "@/context/contact";
 import { LocateIcon, Mail, PhoneIcon } from "lucide-react";
+import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-
+export const metadata: Metadata = {
+  title:
+    "Contact - OG Crystal Services | People Advisory, HR & Career Growth",
+};
 const Page = () => {
   const { submitContactForm } = useApp()!;
   const [data, setData] = useState<ContactFormData>({

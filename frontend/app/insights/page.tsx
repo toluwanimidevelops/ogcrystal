@@ -7,6 +7,11 @@ import { useApp } from "@/context/AppContext";
 import toast from "react-hot-toast";
 import BlogCard from "@/components/blogCard";
 import BlogCardSkeleton from "@/components/blogCardSkelton";
+import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+export const metadata: Metadata = {
+  title:
+    "Insights - OG Crystal Services | People Advisory, HR & Career Growth",
+};
 const Page = () => {
   const { getActiveBlogs } = useApp()!;
   const [blogs, setBlogs] = React.useState<Blog[]>([]);

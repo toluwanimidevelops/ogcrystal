@@ -4,12 +4,17 @@ import { Ear } from 'lucide-react';
 import { FaBrain, FaCompass } from 'react-icons/fa';
 import { FiRefreshCw } from 'react-icons/fi';
 import OurValues from '@/components/Home/OurValues';
+import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface';
 const lists = [
   { icon: <Ear />, id: 1, title: "Listen", description: "We start by hearing you out and understanding your context." },
   { icon: <FaBrain />, id: 2, title: "Understand", description: "We look beneath the surface to identify what is really happening." },
   { icon: <FaCompass />, id: 3, title: "Guide", description: "We bring expertise, perspective and practical recommendations." },
   { icon: <FiRefreshCw />, id: 4, title: "Transform", description: "We help turn recommendations into meaningful action and better outcomes." }
 ]
+export const metadata: Metadata = {
+  title:
+    "Our Approach - OG Crystal Services | People Advisory, HR & Career Growth",
+};
 const page = () => {
   return (
     <div>
