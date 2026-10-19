@@ -16,11 +16,14 @@ const AboutFounder = () => {
     },
   } as const;
   return (
-    <div className="max-w-full  mx-auto">
-      <Title title="Meet Our Founder"/>
+    <section
+      aria-label="About the founder of OG Crystal Services"
+      className="max-w-full  mx-auto"
+    >
+      <Title title="Meet Our Founder" />
       <div className="grid grid-cols-2 max-md:grid-cols-1 overflow-hidden">
         {/* Text Section */}
-        <motion.div
+        <motion.article
           initial={{ opacity: 0, x: false ? 50 : -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -36,22 +39,27 @@ const AboutFounder = () => {
             THE FOUNDER
           </motion.p>
 
-          <motion.h2
+          {/* h3 because Title above already renders the section heading */}
+          <motion.h3
             variants={itemVariants}
             className={`  text-[#071a3d]
                    font-mulish text-[50px] max-md:text-[30px]   leading-15 capitalize tracking-tighter font-semibold`}
           >
             Oghosa Praise Emmanuel
-          </motion.h2>
+          </motion.h3>
           <p className="max-sm:text-[14px] font-medium max-lg:text-[16px] my-2 text-[#7a7a7a]">
             Founder | People Advisor | HR Professional | Facilitator
           </p>
-          <p className="max-sm:text-[14px] font-light max-lg:text-[15px] text-[#7a7a7a]">
-            With over 15 years of corporate experience, including more than a
-            decade in core Human Resources, Oghosa Praise Emmanuel has built her
-            career at the intersection of people, service, and business
-            performance.
-            <span className="mt-2 block">
+
+          {/* Each paragraph is now a real <p> instead of a <span className="block"> */}
+          <div className="max-sm:text-[14px] font-light max-lg:text-[15px] text-[#7a7a7a]">
+            <p>
+              With over 15 years of corporate experience, including more than a
+              decade in core Human Resources, Oghosa Praise Emmanuel has built
+              her career at the intersection of people, service, and business
+              performance.
+            </p>
+            <p className="mt-2">
               Her professional journey began in customer service and customer
               support, where she developed a strong appreciation for listening,
               understanding people's needs, resolving concerns, and creating
@@ -59,8 +67,8 @@ const AboutFounder = () => {
               professional environments in Nigeria and internationally broadened
               her perspective on what organisations need to serve people well
               and perform effectively.
-            </span>
-            <span className="mt-2 block">
+            </p>
+            <p className="mt-2">
               As her career evolved into HR leadership and people management,
               she began to see more clearly how closely the employee experience
               is connected to the customer experience. Capable people need
@@ -68,26 +76,26 @@ const AboutFounder = () => {
               clear processes to do their best work. When organisations invest
               in these foundations, they are better equipped to deliver
               consistent service, build trust, and grow.
-            </span>
-            <span className="mt-2 block">
+            </p>
+            <p className="mt-2">
               These experiences helped shape her vision for OG Crystal Services
               Limited: an advisory business that brings people management and
               customer experience together, helping organisations strengthen
               their HR practices, improve service delivery, and build the
               capabilities needed for lasting growth.
-            </span>
-            <span className="mt-2 block">
+            </p>
+            <p className="mt-2">
               Alongside her work with organisations, Oghosa is passionate about
               coaching, training, facilitation, and professional development.
               Her approach is practical and people-centred, grounded in
               listening carefully, understanding the challenge, and helping turn
               insight into meaningful action.
-            </span>
-            <span className="mt-2 block">
+            </p>
+            <p className="mt-2">
               Through OG Crystal Services, she is building a business that
               brings together expertise and practical guidance to help
               organisations and individuals make progress that lasts.
-            </span>
+            </p>
             <q className="mt-2 text-[#071a3d] font-semibold block">
               <i>
                 Her guiding belief: better-supported people can create better
@@ -95,11 +103,11 @@ const AboutFounder = () => {
                 growth.
               </i>
             </q>
-          </p>
-        </motion.div>
+          </div>
+        </motion.article>
 
         {/* Image Section */}
-        <motion.div
+        <motion.figure
           initial={{ opacity: 0, x: false ? -50 : 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -111,13 +119,17 @@ const AboutFounder = () => {
           }
         >
           <img
-            src={"/ceo.jpeg"}
-            alt="Service"
+            src="/ceo.jpeg"
+            alt="Oghosa Praise Emmanuel, founder of OG Crystal Services"
+            width={1200}
+            height={1500}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
-        </motion.div>
+        </motion.figure>
       </div>
-    </div>
+    </section>
   );
 };
 

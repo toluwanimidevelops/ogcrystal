@@ -8,7 +8,11 @@ import { motion } from "framer-motion";
 
 const Services = ({ notitle }: { notitle?: boolean }) => {
   return (
-    <div className={`${!notitle ? "mt-60" : ""}`}>
+    // <section> instead of <div>: a distinct, labeled part of the page
+    <section
+      aria-label="Our services at OG Crystal Services"
+      className={`${!notitle ? "mt-60" : ""}`}
+    >
       {!notitle ? <Title small="what we do" title="Our Services" /> : ""}
       {!notitle ? (
         <motion.p
@@ -35,12 +39,14 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
+                aria-label="Learn more about People Advisory and HR Consulting"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
                 href={"/what-we-do/hrPeoleAdvisory"}
               >
                 Learn More
               </Link>
               <Link
+                aria-label="Contact us about People Advisory and HR Consulting"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -60,12 +66,14 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
+                aria-label="Learn more about Career and Personal Growth Advisory"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
                 href={"/what-we-do/career-personal-growth"}
               >
                 Learn More
               </Link>
               <Link
+                aria-label="Contact us about Career and Personal Growth Advisory"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -85,12 +93,14 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
+                aria-label="Learn more about Training and Facilitation"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
                 href={"/what-we-do/training-facilitation"}
               >
                 Learn More
               </Link>
               <Link
+                aria-label="Contact us about Training and Facilitation"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -108,8 +118,8 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           text3="Help businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
           buttons={
             <div className="flex justify-center gap-2 items-center">
-             
               <Link
+                aria-label="Contact us about Customer Experience and Service Excellence"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -119,7 +129,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           }
         />
       </div>
-    </div>
+    </section>
   );
 };
 

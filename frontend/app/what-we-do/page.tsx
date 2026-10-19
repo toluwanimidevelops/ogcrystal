@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div>
+    <section >
       <Header small="What we do" text="Our Services" />
       <Services notitle />
       <OurValues />
-    </div>
+    </section>
   );
 };
 

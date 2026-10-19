@@ -32,10 +32,13 @@ const About = ({
   } as const;
 
   return (
-    <div className="max-w-full w-7xl px-6 md:px-12 mx-auto">
+    <section
+      aria-label="About OG Crystal Services"
+      className="max-w-full w-7xl px-6 md:px-12 mx-auto"
+    >
       <Title small="who we are" title="Og Crystal Services" />
 
-      <motion.div
+      <motion.article
         className="flex gap-5 font-mulish text-[17px] text-[#7a7a7a] font-normal max-md:flex-col"
         variants={containerVariants}
         initial="hidden"
@@ -87,7 +90,6 @@ const About = ({
 
         {/* Right Column */}
         <motion.div className="flex-1" variants={itemVariants}>
-         
           <p>
             We also help organisations improve customer service, strengthen
             service delivery, and create customer experiences that build
@@ -116,10 +118,10 @@ const About = ({
             for their customers, and build for the future.
           </p>
         </motion.div>
-      </motion.div>
+      </motion.article>
 
       {/* Animated Image Container */}
-      <motion.div
+      <motion.figure
         className="w-full p-2 my-15"
         initial={{ opacity: 0, scale: 0.95, y: 40 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -128,13 +130,17 @@ const About = ({
       >
         <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px] max-md:rounded-br-[100px] max-md:rounded-tl-[100px] max-sm:rounded-tl-[70px] max-sm:rounded-br-[70px]">
           <img
-            src={"/002.jpg"}
-            alt={"About"}
+            src="/002.jpg"
+            alt="OG Crystal Services team providing HR consulting and customer experience training"
+            width={1600}
+            height={900}
+            loading="lazy"
+            decoding="async"
             className="object-cover w-full h-full"
           />
         </div>
-      </motion.div>
-    </div>
+      </motion.figure>
+    </section>
   );
 };
 

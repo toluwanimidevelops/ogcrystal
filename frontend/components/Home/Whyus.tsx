@@ -46,20 +46,24 @@ export default function WhyOGCrystal() {
 
   // Card animation variants
   const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-  hover: {
-    y: -5,
-    transition: { duration: 0.2, ease: "easeOut" },
-  },
-};
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    hover: {
+      y: -5,
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+  };
 
   return (
-    <section id="why-og-crystal" className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden">
+    <section
+      id="why-og-crystal"
+      aria-label="Why choose OG Crystal Services"
+      className="py-20 max-w-full w-7xl px-6 md:px-12 mx-auto overflow-hidden"
+    >
       <div>
         <Title small="The OG Crystal Difference" title="Why OG Crystal?" />
 
@@ -76,8 +80,8 @@ export default function WhyOGCrystal() {
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
-        <motion.div
+        {/* <ol>/<li>: the five pillars are an ordered list (preflight removes default list styling) */}
+        <motion.ol
           className="grid grid-cols-2 max-md:grid-cols-1 mt-10 gap-4"
           variants={containerVariants}
           initial="hidden"
@@ -85,9 +89,9 @@ export default function WhyOGCrystal() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {pillars.map((item, index) => (
-            <motion.div
-              key={index}
-              
+            // <li> + <article>-free: each card is a list item with its own h3
+            <motion.li
+              key={item.title}
               variants={cardVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
@@ -102,9 +106,9 @@ export default function WhyOGCrystal() {
                   {item.description}
                 </p>
               </div>
-            </motion.div>
+            </motion.li>
           ))}
-        </motion.div>
+        </motion.ol>
       </div>
     </section>
   );

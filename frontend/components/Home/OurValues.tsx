@@ -77,7 +77,9 @@ const OurValues = ({ noPadding }: { noPadding?: boolean }) => {
   } as const;
 
   return (
-    <div
+    // <section> instead of <div>: a distinct, labeled part of the page
+    <section
+      aria-label="Our values at OG Crystal Services"
       className={`w-full ${noPadding ? "mt-0" : "mt-60"}  py-30 bg-[#071a3d]`}
     >
       <div className="max-w-full w-7xl px-6 md:px-12 mx-auto ">
@@ -88,18 +90,20 @@ const OurValues = ({ noPadding }: { noPadding?: boolean }) => {
           bigTextColor="text-white"
         />
 
-        <motion.div
+        {/* <ul>/<li>: the values are a list, and crawlers read them as one */}
+        <motion.ul
           className="w-full max-sm:grid-cols-1 max-md:grid-cols-2 gap-10 mt-20 mx-auto grid grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {data.map((item, index) => (
-            <motion.div key={index} variants={cardVariants}>
+          {data.map((item) => (
+            <motion.li key={item.title} variants={cardVariants}>
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                aria-hidden="true"
                 className="size-15 flex items-center justify-center rounded-full bg-[#F8F6F1] mb-4"
               >
                 {item.icon}
@@ -108,11 +112,11 @@ const OurValues = ({ noPadding }: { noPadding?: boolean }) => {
                 {item.title}
               </h3>
               <p className="text-gray-400">{item.description}</p>
-            </motion.div>
+            </motion.li>
           ))}
-        </motion.div>
+        </motion.ul>
       </div>
-    </div>
+    </section>
   );
 };
 
