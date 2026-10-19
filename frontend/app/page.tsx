@@ -45,7 +45,7 @@ export default function Page() {
       <Services />
       <OurValues />
       <WhyOGCrystal />
-      <Floatters />
+      
     </main>
   );
 }

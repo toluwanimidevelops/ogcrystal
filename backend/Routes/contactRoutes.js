@@ -3,6 +3,6 @@ import { Auth } from "../middleware/userAuthMiddleWare.js";
 import { GetContact, sendContact } from "../Controllers/contactControllers.js";
 const router = express.Router();
 
-router.post("/contact", sendContact);
-router.get("/contact", Auth, GetContact);
+router.post("/", sendContact);
+router.get("/", Auth, GetContact);
 export default router;

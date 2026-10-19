@@ -10,23 +10,43 @@ const navLinks = [
   { name: "Our Approach", href: "/our-approach" },
   { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
- 
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLightTheme, setIsLightTheme] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      // 1. Check Scroll Position for translucent background
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // 2. Check for sections with data-nav-theme="light" passing under the navbar
+      const lightElements = document.querySelectorAll(
+        '[data-nav-theme="light"]',
+      );
+      let foundLightSection = false;
+
+      const navThreshold = 80; // Height of navbar area to check
+
+      lightElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= navThreshold && rect.bottom >= navThreshold) {
+          foundLightSection = true;
+        }
+      });
+
+      setIsLightTheme(foundLightSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check on load
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,15 +54,20 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#071A3D]/90 backdrop-blur-md py-4 shadow-lg border-b border-[#2F73C9]/20"
+          ? "bg-[#071A3D]/90 backdrop-blur-md lg:py-4  shadow-lg border-b border-[#2F73C9]/20"
           : "bg-transparent py-6 mt-3"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        
+      <div className="max-w-7xl mx-auto px-6 md:px-12 max-lg:py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tight text-white">
-          <img src={isScrolled?"/logo/ogcrystalwhite.png":"/logo/ogcrystal.png"} className="w-15" alt="" />
+        <Link href="/" className="text-2xl font-bold tracking-tight">
+          <img
+            src={
+              !isScrolled ? "/logo/ogcrystal.png" : "/logo/ogcrystalwhite.png"
+            }
+            className="w-15"
+            alt="Logo"
+          />
         </Link>
 
         {/* Desktop Links */}
@@ -51,7 +76,11 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-[#EAF2FB]/80 hover:text-white transition-colors duration-200"
+              className={`text-sm font-medium transition-colors duration-200 ${
+                isLightTheme && !isScrolled
+                  ? "text-black hover:text-[#2F73C9]"
+                  : "text-[#EAF2FB]/80 hover:text-white"
+              }`}
             >
               {link.name}
             </Link>
@@ -71,7 +100,9 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-white p-2 focus:outline-none"
+          className={`lg:hidden p-2 focus:outline-none ${
+            isLightTheme && !isScrolled ? "text-black" : "text-white"
+          }`}
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -80,21 +111,27 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#071A3D] border-b border-[#2F73C9]/20 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-200">
+        <div
+          className={`lg:hidden border-b px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-200 bg-[#071A3D] border-[#2F73C9]/20
+          }`}
+        >
           <nav className="flex flex-col gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium text-[#EAF2FB] hover:text-[#B8944D] transition-colors"
+                className={`text-lg font-medium transition-colors 
+                     text-[#EAF2FB] hover:text-[#B8944D]`}
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          <div className="pt-4 border-t border-[#2F73C9]/20">
+          <div
+            className={`pt-4 border-t border-[#2F73C9]/20`}
+          >
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}

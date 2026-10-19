@@ -6,7 +6,7 @@ import {
   FetchBlogResponse,
   getActiveBlogs,
   getBlogById,
-  getRelatedBlogById
+  getRelatedBlogById,
 } from "./blog";
 import axios from "axios";
 import {
@@ -15,6 +15,11 @@ import {
   createComment,
   getCommentsByBlogId,
 } from "./comments";
+import {
+  ContactFormData,
+  ContactFormResponse,
+  submitContactForm,
+} from "./contact";
 export const api = axios.create({
   baseURL: "https://ogcrystalserver.vercel.app/",
 });
@@ -23,8 +28,14 @@ interface AppContextType {
   getRelatedBlogById: (id: string) => Promise<FetchBlogResponse>;
   getActiveBlogs: () => Promise<FetchBlogResponse>;
   getBlogById: (id: string) => Promise<CreateBlogResponse>;
+  submitContactForm: (data: ContactFormData) => Promise<ContactFormResponse>;
   getCommentsByBlogId: (blogId: string) => Promise<FetchCommentResponse>;
-  createComment: ({ blogId, name, email, comment }: {
+  createComment: ({
+    blogId,
+    name,
+    email,
+    comment,
+  }: {
     blogId: string;
     name: string;
     email: string;
@@ -38,6 +49,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     getRelatedBlogById,
     getActiveBlogs,
     getBlogById,
+    submitContactForm,
     getCommentsByBlogId,
     createComment,
   };

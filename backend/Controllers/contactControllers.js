@@ -15,7 +15,7 @@ export const sendContact = async (req, res) => {
       address,
       message,
     });
-    res.status(201).json({ success: true, contact });
+    res.status(201).json({ success: true });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
   }

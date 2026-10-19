@@ -32,7 +32,7 @@ const Floatters = () => {
               className="w-full px-2  rounded-md bg-gray-200 min-h-17 justify-between items-center flex gap-3 border-l-3 hover:bg-white hover:shadow-md duration-500 border-[#2DB742]"
             >
               <span className="flex items-center gap-2">
-                <span className="bg-[#2DB742]  size-12 flex cursor-pointer justify-center items-center rounded-full shadow-black/30 shadow-md">
+                <span className="bg-[#2DB742] relative size-12 flex cursor-pointer justify-center items-center rounded-full shadow-black/30 shadow-md">
                   <IoLogoWhatsapp color="white" size={30} />
                 </span>
                 <p className="text-sm">Og Crystal Groups</p>
@@ -52,12 +52,13 @@ const Floatters = () => {
           </div>
         )}
 
-        <div className="bg-[#2DB742]  size-12.5 flex cursor-pointer justify-center items-center rounded-full shadow-black/30 shadow-md">
+        <div className="bg-[#2DB742] relative  size-12.5 flex cursor-pointer justify-center items-center rounded-full shadow-black/30 shadow-md">
           {state ? (
             <LiaTimesSolid color="white" size={30} />
           ) : (
             <IoLogoWhatsapp color="white" size={30} />
           )}
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#2DB742] opacity-75 [animation-duration:1.5s]"></span>
         </div>
       </div>
     </div>

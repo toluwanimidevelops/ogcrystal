@@ -6,6 +6,7 @@ import Navbar from "@/components/Global/NavBar";
 import Footer from "@/components/Global/Footer";
 import { Toaster } from "react-hot-toast";
 import { AppProvider } from "@/context/AppContext";
+import Floatters from "@/components/Global/Floatters";
 const mulish = Mulish({
   subsets: ["latin"],
   display: "swap",
@@ -52,6 +53,7 @@ export default function RootLayout({
         <AppProvider>
           <Navbar />
           {children}
+          <Floatters />
           <Footer />
         </AppProvider>
       </body>
