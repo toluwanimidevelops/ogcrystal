@@ -34,7 +34,7 @@ const personSchema = {
 
 const page = () => {
   return (
-    <div>
+    <div aria-label="About OG Crystal Services and its founder, Oghosa Praise Emmanuel">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
