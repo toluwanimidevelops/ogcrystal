@@ -51,12 +51,12 @@ const Page = () => {
   };
   return (
     <div>
-      <div className="max-h-200 relative">
-        <div data-nav-theme="light" className="h-100 bg-[#F8F6F1]"></div>
+      <div className="max-h-200 max-md:max-h-125 relative">
+        <div data-nav-theme="light" className="h-100 max-md:h-50 bg-[#F8F6F1]"></div>
         <img
           src="/008.jpg"
           alt=""
-          className="w-5xl mx-auto object-cover relative -top-75 object-center max-w-full h-150"
+          className="w-5xl mx-auto object-cover relative -top-75 max-md:-top-20 max-md:h-75 object-center max-w-full h-150"
         />
       </div>
       <div className="text-center">

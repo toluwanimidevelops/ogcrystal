@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-
+import Link from "next/link";
 const Cta = () => {
   return (
     <>
@@ -10,8 +11,8 @@ const Cta = () => {
                     font-family: 'Poppins', sans-serif;
                 }
             `}</style>
-      <section className="flex  cta flex-col items-center justify-center mx-auto  max-md:px-2 max-w-7xl my-10 w-full text-center rounded-2xl py-16 bg-[#071A3D]">
-        <img src="/logo/ogcrystalwhite.png" className="w-15"/>
+      <section className="flex  cta flex-col items-center justify-center mx-auto  max-md:px-5 max-w-7xl my-10 w-full text-center rounded-2xl py-16 bg-[#071A3D]">
+        <img src="/logo/ogcrystalwhite.png" className="w-15" />
         <h1 className="text-2xl md:text-3xl font-medium text-white max-w-2xl mt-5">
           Your next step starts with a conversation.
         </h1>
@@ -20,14 +21,19 @@ const Cta = () => {
           developing your people or navigating your own growth journey, we would
           love to understand where you are and explore how we can support you.
         </p>
-        <div className="flex gap-5">
-          <button className="px-5  max-sm:px-3 cursor-pointer py-2.5 mt-4 text-sm bg-[#b8944d] hover:scale-105 transition duration-300 text-white">
-           Book a Consultation
-          </button>
-          <button className="px-5  max-sm:px-3 cursor-pointer py-2.5 mt-4 text-sm max-sm:text-xs border text-white border-white hover:scale-105 transition duration-300 ">
-           Start a Conversation
-          </button>
-          
+        <div className="flex mt-5 gap-5">
+          <Link
+            className="py-2 px-5 font-medium  cursor-pointer max-sm:text-[10px] text-white bg-[#b8944d] transition-transform hover:scale-105"
+            href={"/"}
+          >
+            Book a Consultation
+          </Link>
+          <Link
+            className="py-2 px-5 font-medium cursor-pointer  max-sm:text-[10px] text-white bg-transparent border border-white hover:scale-105 transition duration-300"
+            href={"/contact"}
+          >
+            Start a Conversation
+          </Link>
         </div>
       </section>
     </>
