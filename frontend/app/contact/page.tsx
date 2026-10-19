@@ -3,7 +3,7 @@ import Title from "@/components/Global/Title";
 import { useApp } from "@/context/AppContext";
 import { ContactFormData } from "@/context/contact";
 import { LocateIcon, Mail, PhoneIcon } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const Page = () => {
@@ -17,7 +17,7 @@ const Page = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       setIsSubmitting(true);
@@ -36,12 +36,16 @@ const Page = () => {
         toast.error(response.message || "Failed to send message.");
       }
     } catch (err) {
-      toast.error(err.message || "An error occurred while sending the message.");
+      toast.error(
+        (err as string) || "An error occurred while sending the message.",
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
   };
