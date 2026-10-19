@@ -37,7 +37,7 @@ const Page = () => {
       }
     } catch (err) {
       toast.error(
-        (err as string) || "An error occurred while sending the message.",
+        "An error occurred while sending the message.",
       );
     } finally {
       setIsSubmitting(false);
