@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
   { images: "/007.jpg", text: "Better People" },
-  { images: "/005.jpg", text: "Exceptional Experiences" },
-  { images: "/004.jpg", text: "Lasting Growth" },
+  { images: "/012.jpg", text: "Exceptional Experiences" },
+  { images: "/growth.jpg", text: "Lasting Growth" },
 ];
 
 export default function Header() {

@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "About", href: "/about" },
-  { name: "What we Do", href: "/what-we-do" },
+  { name: "Services", href: "/what-we-do" },
   { name: "Our Approach", href: "/our-approach" },
   { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
@@ -103,9 +103,9 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-[#2F73C9] rounded-full hover:bg-[#255eb3] transition-all duration-200 shadow-sm hover:shadow-md"
+            className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-[#2F73C9]  hover:bg-[#255eb3] transition-all duration-200 shadow-sm hover:shadow-md"
           >
-            Start A Conversation
+            Consultation
           </Link>
         </div>
 
