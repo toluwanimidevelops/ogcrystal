@@ -134,7 +134,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           imagePosition="left"
           text1="OG crystal Services"
           text2="Customer Experience and Service Excellence"
-          text3="Help businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
+          text3="Helping businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
