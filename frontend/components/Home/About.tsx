@@ -3,6 +3,7 @@
 import React from "react";
 import Title from "../Global/Title";
 import { motion } from "framer-motion";
+import { Users, HeartHandshake, Compass } from "lucide-react";
 
 const About = ({
   titleNotNeeded,
@@ -31,93 +32,73 @@ const About = ({
     },
   } as const;
 
+  const blocks = [
+    {
+      icon: Users,
+      heading: "Who We Are",
+      text: "Crystal Services is a professional services firm committed to improving lives and strengthening businesses. Through professional counselling, wellness support, and business advisory, we provide individuals and organisations with the guidance, care, and strategic insight they need to thrive.",
+    },
+    {
+      icon: HeartHandshake,
+      heading: "What We Do",
+      text: "We provide professional counselling and wellness support to help individuals navigate life's challenges, build emotional resilience, and achieve greater personal well-being. We also offer strategic business advisory services that help organisations overcome challenges, make informed decisions, improve performance, and pursue sustainable growth.",
+    },
+    {
+      icon: Compass,
+      heading: "What We Believe",
+      text: "We believe that healthy people build stronger communities and that purposeful leadership drives thriving businesses. We believe lasting progress happens when people receive the support they need, decisions are informed by clarity, and growth is guided by purpose.",
+    },
+  ];
+
   return (
     <section
-      aria-label="About OG Crystal Services"
+      aria-label="About Crystal Services"
       className="max-w-full w-7xl px-6 md:px-12 mx-auto"
     >
-      <Title small="who we are" title="Og Crystal Services" />
+      <Title
+        small="who we are"
+        title="People Matter. Businesses Matter. Purpose Matters."
+      />
 
       <motion.article
-        className="flex gap-5 font-mulish text-[17px] text-[#7a7a7a] font-normal max-md:flex-col"
+        className="font-mulish text-[17px] text-[#7a7a7a] font-normal"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Left Column */}
-        <motion.div className="flex-1" variants={itemVariants}>
-          <p>
-            At OG Crystal Services Limited, we believe that lasting business
-            growth begins with people and is strengthened by the experiences
-            organisations create.
-          </p>
-          <p className="mt-2">
-            Every successful organisation needs more than good ideas and
-            ambitious goals. It needs capable people, effective leadership,
-            sound processes, and a clear understanding of how its people and
-            customers experience the business. When these elements work
-            together, organisations are better positioned to perform, build
-            trust, and grow sustainably.
-          </p>
-          <p className="mt-2">
-            We partner with business owners, founders, and leadership teams to
-            make that happen.
-          </p>
-          <p className="mt-2">
-            Through our integrated approach to Human Resources Consulting,
-            People Advisory, Customer Experience, and Learning and Development,
-            we help organisations address people and business challenges with
-            practical solutions that create meaningful, lasting value.
-          </p>
-          <p className="mt-2">
-            Our work spans the employee and customer experience. We help
-            businesses strengthen their HR foundations, improve recruitment and
-            talent management, develop leaders, build effective teams, establish
-            people policies and processes, and nurture workplace cultures where
-            people can contribute and thrive.
-          </p>
-          {!exemptButton && (
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-[#B8944D] mt-4 text-white py-2 px-6 cursor-pointer text-md hover:bg-[#a89268] transition-colors"
-            >
-              Learn More
-            </motion.button>
-          )}
-        </motion.div>
+        {/* Intro */}
+        <motion.p className="max-w-3xl" variants={itemVariants}>
+          We bring people-centred support, professional counselling, wellness
+          solutions, and strategic business insight together to help individuals
+          thrive and organisations move forward with clarity and confidence.
+        </motion.p>
 
-        {/* Right Column */}
-        <motion.div className="flex-1" variants={itemVariants}>
-          <p>
-            We also help organisations improve customer service, strengthen
-            service delivery, and create customer experiences that build
-            confidence, encourage loyalty, and support long-term business
-            relationships. The way people are led, supported, and equipped to
-            work has a direct influence on the experiences they deliver.
-          </p>
-          <p className="mt-2">
-            Beyond organisational consulting, we support individual and
-            professional development through coaching, training, and
-            facilitation. Our goal is to equip people with the knowledge,
-            skills, and confidence to grow, lead more effectively, and make a
-            meaningful contribution wherever they work.
-          </p>
-          <p className="mt-2">
-            We recognise that every organisation has its own realities,
-            priorities, and ambitions. That is why we take a thoughtful,
-            practical, and tailored approach to our work, focusing on solutions
-            that address real challenges, strengthen capabilities, and support
-            measurable progress.
-          </p>
-          <p className="mt-2">
-            At OG Crystal Services Limited, our commitment is to provide trusted
-            guidance, practical expertise, and meaningful support that help
-            organisations get more from their people, create better experiences
-            for their customers, and build for the future.
-          </p>
-        </motion.div>
+        {/* Content blocks with icons */}
+        <div className="mt-8 grid grid-cols-3 gap-8 max-lg:grid-cols-1">
+          {blocks.map(({ icon: Icon, heading, text }) => (
+            <motion.div key={heading} variants={itemVariants}>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#B8944D]/10 text-[#B8944D]">
+                  <Icon size={24} strokeWidth={1.75} aria-hidden="true" />
+                </span>
+                <h3 className="text-xl font-semibold text-[#333]">{heading}</h3>
+              </div>
+              <p>{text}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {!exemptButton && (
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-[#B8944D] mt-8 text-white py-2 px-6 cursor-pointer text-md hover:bg-[#a89268] transition-colors"
+          >
+            Learn More
+          </motion.button>
+        )}
       </motion.article>
 
       {/* Animated Image Container */}
@@ -131,7 +112,7 @@ const About = ({
         <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px] max-md:rounded-br-[100px] max-md:rounded-tl-[100px] max-sm:rounded-tl-[70px] max-sm:rounded-br-[70px]">
           <img
             src="/002.jpg"
-            alt="OG Crystal Services team providing HR consulting and customer experience training"
+            alt="Crystal Services team providing counselling, wellness support and business advisory"
             width={1600}
             height={900}
             loading="lazy"
