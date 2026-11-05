@@ -36,7 +36,7 @@ const About = ({
     {
       icon: Users,
       heading: "Who We Are",
-      text: "Crystal Services is a professional services firm committed to improving lives and strengthening businesses. Through professional counselling, wellness support, and business advisory, we provide individuals and organisations with the guidance, care, and strategic insight they need to thrive.",
+      text: "Og Crystal Services is a professional services firm committed to improving lives and strengthening businesses. Through professional counselling, wellness support, and business advisory, we provide individuals and organisations with the guidance, care, and strategic insight they need to thrive.",
     },
     {
       icon: HeartHandshake,

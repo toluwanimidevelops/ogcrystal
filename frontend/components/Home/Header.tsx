@@ -12,7 +12,7 @@ const data = [
   },
   {
     images: "/012.jpg",
-    text: "Clarity For Bussiness",
+    text: "Clarity For Business",
     subText: "Strategy & Business Advisory",
   },
   {
