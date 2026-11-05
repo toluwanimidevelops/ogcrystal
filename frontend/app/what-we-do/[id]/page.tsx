@@ -28,7 +28,7 @@ export const servicesData: ServiceDetail[] = [
     tagline:
       "Helping growing businesses build the people side of their business properly.",
     description:
-      "Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture.",
+      "We Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture.",
     serviceAreas: [
       "HR Advisory & Strategy",
       "HR Policies, Processes & Documentation",
