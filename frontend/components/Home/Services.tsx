@@ -13,7 +13,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
       aria-label="Our services at OG Crystal Services"
       className={`${!notitle ? "mt-60" : ""}`}
     >
-      {!notitle ? <Title small="what we do" title="Our Services" /> : ""}
+      {!notitle ? <Title title="Our Services" /> : ""}
       {!notitle ? (
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -22,7 +22,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center tracking-[0.3em] uppercase font-mulish mb-20 text-[10px] text-[#838280] font-medium"
         >
-          These are the Four pillars of the Og Crystal Services
+          These are the Five pillars of the Og Crystal Services
         </motion.p>
       ) : (
         ""
@@ -31,8 +31,27 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
       <div className="flex flex-col max-md:gap-10">
         <ServicesCard
           backgroundColor="bg-[#F8F6F1]"
-          image="/009.jpg"
+          image="/office.png"
           imagePosition="left"
+          text1="Og Crystal Services"
+          text2="Counselling, Wellness and Coaching"
+          text3="Through professional guidance, practical strategies and meaningful conversations, we help individuals overcome challenges, build confidence, develop healthy habits and achieve a more balanced, fulfilling life."
+          buttons={
+            <div className="flex justify-center gap-2 items-center">
+              <Link
+                aria-label="Contact us about People Advisory and HR Consulting"
+                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
+                href={"/contact"}
+              >
+                Contact Us
+              </Link>
+            </div>
+          }
+        />
+        <ServicesCard
+          backgroundColor="bg-[#F8F6F1]"
+          image="/009.jpg"
+          imagePosition="right"
           text1="Og Crystal Services"
           text2="People Advisory and HR Consulting"
           text3="Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture."
@@ -62,7 +81,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           text1="Og Crystal Services"
           text2="Career & Personal Growth Advisory"
           text3="Career growth is not always a straight line. There are moments when people need support to understand their strengths, make better career decisions, prepare for opportunities, navigate transitions or rebuild confidence."
-          imagePosition="right"
+          imagePosition="left"
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
@@ -86,7 +105,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
         <ServicesCard
           backgroundColor="bg-[#2F73C9]/30"
           image="/010.jpg"
-          imagePosition="left"
+          imagePosition="right"
           text1="OG crystal Services"
           text2="Training & Facilitation"
           text3="Learning that moves people forward. Training should not simply fill a room and produce certificates. It should change something. We design and facilitate practical learning experiences that help people understand better, work better and perform better."
@@ -112,7 +131,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
         <ServicesCard
           backgroundColor="bg-[#f8f6f1]"
           image="/003.jpg"
-          imagePosition="right"
+          imagePosition="left"
           text1="OG crystal Services"
           text2="Customer Experience and Service Excellence"
           text3="Help businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
