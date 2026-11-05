@@ -86,7 +86,7 @@ const AboutFounder = () => {
             </p>
             <p className="mt-2">
               Alongside her work with organisations, Oghosa is passionate about
-              coaching, training, facilitation, and professional development.
+              councelling, coaching, training, facilitation,  people development and business growth.
               Her approach is practical and people-centred, grounded in
               listening carefully, understanding the challenge, and helping turn
               insight into meaningful action.
