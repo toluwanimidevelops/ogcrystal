@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
 import Title from "../Global/Title";
 import { motion } from "framer-motion";
 import { Users, HeartHandshake, Compass } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const About = ({
   titleNotNeeded,
@@ -49,24 +49,26 @@ const About = ({
       text: "We believe that healthy people build stronger communities and that purposeful leadership drives thriving businesses. We believe lasting progress happens when people receive the support they need, decisions are informed by clarity, and growth is guided by purpose.",
     },
   ];
-
+  const router = useRouter();
   return (
     <section
       aria-label="About Crystal Services"
       className="max-w-full w-7xl px-6 md:px-12 mx-auto"
     >
-      <Title
-        small="who we are"
-        title="People Matter. Businesses Matter. Purpose Matters."
-      />
-
       <motion.article
-        className="font-mulish text-[17px] text-[#7a7a7a] font-normal"
+        className="font-mulish text-[17px] text-left text-[#7a7a7a] font-normal"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
+        <motion.h2
+          variants={itemVariants}
+          className={`  text-[#071a3d]
+                 font-mulish text-[50px] max-md:text-[30px] text-left my-5 mb-5 max-md:mb-5 max-md:my-5 leading-15 capitalize tracking-tighter font-semibold`}
+        >
+          About Og Crystal
+        </motion.h2>
         {/* Intro */}
         <motion.p className="max-w-3xl" variants={itemVariants}>
           We bring people-centred support, professional counselling, wellness
@@ -91,6 +93,7 @@ const About = ({
 
         {!exemptButton && (
           <motion.button
+            onClick={() => router.push("/about")}
             variants={itemVariants}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -111,7 +114,7 @@ const About = ({
       >
         <div className="w-full max-h-170 bg-gray-200 rounded-tl-[170px] overflow-hidden rounded-br-[170px] max-md:rounded-br-[100px] max-md:rounded-tl-[100px] max-sm:rounded-tl-[70px] max-sm:rounded-br-[70px]">
           <img
-            src="/002.jpg"
+            src="/ceol.png"
             alt="Crystal Services team providing counselling, wellness support and business advisory"
             width={1600}
             height={900}
