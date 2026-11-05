@@ -32,16 +32,16 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="bg-linear-to-br  from-[#071a3d]/92 to-[#071a3d] w-62 h-screen flex flex-col justify-between  py-6 overflow-y-auto">
+    <aside className="bg-linear-to-br  from-[#071a3d]/92 to-[#071a3d] max-w-62 lg:w-62 h-screen flex flex-col justify-between  py-6 overflow-y-auto">
       <div>
         {/* Logo Section */}
         <div className="flex flex-col items-center justify-center mb-8">
           <img
             src="/logo/ogcrystalwhite.png"
             alt="Logo"
-            className="w-15 mt-4"
+            className="w-15 max-w-[70%] mt-4"
           />
-          <h1 className="text-center text-white mt-4 capitalize font-medium text-xl">
+          <h1 className="text-center max-lg:hidden text-white mt-4 capitalize font-medium text-xl">
             OG Crystals
           </h1>
         </div>
@@ -67,7 +67,7 @@ const Sidebar = () => {
                     isActive ? "text-[#B8944D]" : "text-gray-400"
                   }`}
                 />
-                <span>{item.name}</span>
+                <span className="max-lg:hidden">{item.name}</span>
               </Link>
             );
           })}
@@ -75,7 +75,7 @@ const Sidebar = () => {
       </div>
 
       {/* Logout Button */}
-      <div className="px-4 mt-auto pt-6">
+      <div className=" mt-auto pt-6">
         <button
           onClick={handleLogout}
           className="flex items-center w-full gap-3 px-4 py-3 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-xl transition-all cursor-pointer"

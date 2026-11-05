@@ -5,9 +5,21 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
-  { images: "/007.jpg", text: "Better People" },
-  { images: "/012.jpg", text: "Exceptional Experiences" },
-  { images: "/growth.jpg", text: "Lasting Growth" },
+  {
+    images: "/007.jpg",
+    text: "Support For Life",
+    subText: "Wellnness & Counselling",
+  },
+  {
+    images: "/012.jpg",
+    text: "Clarity For Bussiness",
+    subText: "Strategy & Business Advisory",
+  },
+  {
+    images: "/growth.jpg",
+    text: "Growth With Purpose",
+    subText: "Vision casting & Implementation",
+  },
 ];
 
 export default function Header() {
@@ -74,7 +86,7 @@ export default function Header() {
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/95 z-10" />
 
             {/* Centered Text */}
-            <div className="absolute p-5 inset-0 flex items-center justify-center z-20">
+            <div className="absolute p-5 inset-0 flex flex-col items-center justify-center z-20">
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,6 +94,14 @@ export default function Header() {
                 className="text-white text-5xl  md:text-9xl font-extrabold max-w-3xl mx-auto text-center tracking-tighter drop-shadow-lg"
               >
                 {currentSlide.text}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-white font-mulish text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-center tracking-tighter drop-shadow-lg"
+              >
+                {currentSlide.subText}
               </motion.p>
             </div>
           </motion.div>
