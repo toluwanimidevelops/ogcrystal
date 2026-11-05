@@ -8,7 +8,7 @@ const data = [
   {
     images: "/007.jpg",
     text: "Support For Life",
-    subText: "Wellnness & Counselling",
+    subText: "Wellness & Counselling",
   },
   {
     images: "/012.jpg",
