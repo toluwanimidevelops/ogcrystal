@@ -6,7 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 const Floatters = () => {
   const [state, setState] = useState(false);
-  const link = "https://wa.link/r0c00h";
+  const link = "https://wa.link/6npjze";
   return (
     <div className="fixed flex flex-col gap-5 justify-end items-end bottom-20  z-100 right-5">
       {state && (
