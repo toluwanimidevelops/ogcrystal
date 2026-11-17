@@ -48,16 +48,18 @@ const AboutFounder = () => {
             Oghosa Praise Emmanuel
           </motion.h3>
           <p className="max-sm:text-[14px] font-medium max-lg:text-[16px] my-2 text-[#7a7a7a]">
-            Founder | People Advisor | HR Professional | Facilitator
+            Founder OG Crystal Services | People and Business Advisor | HR and
+            Customer Experience Professional
           </p>
 
           {/* Each paragraph is now a real <p> instead of a <span className="block"> */}
           <div className="max-sm:text-[14px] font-light max-lg:text-[15px] text-[#7a7a7a]">
             <p>
-              With over 15 years of corporate experience, including more than a
-              decade in core Human Resources, Oghosa Praise Emmanuel has built
-              her career at the intersection of people, service, and business
-              performance.
+              With over 15 years of corporate experience across people
+              management, HR, customer support and service delivery, the founder
+              understands how people, workplace practices and customer
+              experiences affect business performance. This experience shapes
+              the practical, people-centred approach behind OG Crystal Services.
             </p>
             <p className="mt-2">
               Her professional journey began in customer service and customer
@@ -86,10 +88,10 @@ const AboutFounder = () => {
             </p>
             <p className="mt-2">
               Alongside her work with organisations, Oghosa is passionate about
-              councelling, coaching, training, facilitation,  people development and business growth.
-              Her approach is practical and people-centred, grounded in
-              listening carefully, understanding the challenge, and helping turn
-              insight into meaningful action.
+              counselling, coaching, training, facilitation, people development
+              and business growth. Her approach is practical and people-centred,
+              grounded in listening carefully, understanding the challenge, and
+              helping turn insight into meaningful action.
             </p>
             <p className="mt-2">
               Through OG Crystal Services, she is building a business that

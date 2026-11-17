@@ -36,17 +36,17 @@ const About = ({
     {
       icon: Users,
       heading: "Who We Are",
-      text: "Og Crystal Services is a professional services firm committed to improving lives and strengthening businesses. Through professional counselling, wellness support, and business advisory, we provide individuals and organisations with the guidance, care, and strategic insight they need to thrive.",
+      text: "OG Crystal Services Limited is a professional services firm that helps individuals grow, businesses improve and organisations build stronger workplaces. We bring together people advisory, business support, customer experience, professional development and personal wellness. Our aim is to give people and businesses practical support that helps them move forward.",
     },
     {
       icon: HeartHandshake,
       heading: "What We Do",
-      text: "We provide professional counselling and wellness support to help individuals navigate life's challenges, build emotional resilience, and achieve greater personal well-being. We also offer strategic business advisory services that help organisations overcome challenges, make informed decisions, improve performance, and pursue sustainable growth.",
+      text: "We work with individuals, business owners and organisations. We help with people and workplace challenges, business improvement, customer service, career growth and personal well-being. Through our advisory, consulting, training and support services, we help clients understand their challenges, make better decisions and take useful steps forward.",
     },
     {
       icon: Compass,
       heading: "What We Believe",
-      text: "We believe that healthy people build stronger communities and that purposeful leadership drives thriving businesses. We believe lasting progress happens when people receive the support they need, decisions are informed by clarity, and growth is guided by purpose.",
+      text: "We believe people are important to every successful business and every meaningful achievement. Strong businesses need capable people, good leadership and clear systems. Individuals also need the right support and opportunities to grow.",
     },
   ];
   const router = useRouter();

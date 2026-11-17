@@ -1,53 +1,95 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
+import Link from "next/link";
+
+const SLIDE_DURATION = 5000;
+const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
+const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 const data = [
   {
     images: "/007.jpg",
-    text: "Support For Life",
-    subText: "Wellness & Counselling",
+    text: "People",
+    subText:
+      "We help individuals care for their well-being and personal growth. We also help businesses strengthen their people, improve customer experience and build for better performance.",
   },
   {
     images: "/012.jpg",
-    text: "Clarity For Business",
-    subText: "Strategy & Business Advisory",
+    text: "Performance",
+    subText:
+      "We help individuals care for their well-being and personal growth. We also help businesses strengthen their people, improve customer experience and build for better performance.",
   },
   {
     images: "/growth.jpg",
-    text: "Growth With Purpose",
-    subText: "Vision casting & Implementation",
+    text: "Purpose",
+    subText:
+      "We help individuals care for their well-being and personal growth. We also help businesses strengthen their people, improve customer experience and build for better performance.",
   },
 ];
 
+// Slide wrapper: direction-aware (forward = enters from left, exits right, like before)
+const slideVariants: Variants = {
+  enter: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
+  center: { x: "0%" },
+  exit: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
+};
+
+// Reduced-motion fallback: simple fade
+const fadeVariants: Variants = {
+  enter: { opacity: 0 },
+  center: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+// Text block: stagger children after the slide has mostly settled
+const contentVariants: Variants = {
+  enter: {},
+  center: { transition: { delayChildren: 0.55, staggerChildren: 0.12 } },
+  exit: {},
+};
+
+const itemVariants: Variants = {
+  enter: { opacity: 0, y: 30 },
+  center: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE_OUT },
+  },
+  exit: { opacity: 0, transition: { duration: 0.25 } },
+};
+
 export default function Header() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [[currentIndex, direction], setSlide] = useState<[number, number]>([0, 1]);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const reduceMotion = useReducedMotion();
 
-  // Track scroll position to trigger full-width expansion
+  // Scroll -> full-width expansion
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Auto-advance image loop
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % data.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
+  const goTo = useCallback((index: number) => {
+    setSlide(([current]) => (index === current ? [current, 1] : [index, index > current ? 1 : -1]));
   }, []);
+
+  // Auto-advance. Depends on currentIndex so manual clicks restart the 5s timer.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSlide(([current]) => [(current + 1) % data.length, 1]);
+    }, SLIDE_DURATION);
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
 
   const currentSlide = data[currentIndex];
 
@@ -62,48 +104,73 @@ export default function Header() {
           isScrolled ? "rounded-none" : "rounded-3xl"
         }`}
       >
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
-            initial={{ x: "-100%" }} // Enters from left
-            animate={{ x: "0%" }} // Settles in center
-            exit={{ x: "100%" }} // Exits to right
-            transition={{
-              duration: 1.1,
-              ease: [0.77, 0, 0.175, 1],
-            }}
+            custom={direction}
+            variants={reduceMotion ? fadeVariants : slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={
+              reduceMotion
+                ? { duration: 0.4 }
+                : { duration: 1.1, ease: EASE_IN_OUT }
+            }
             className="absolute inset-0 w-full h-full overflow-hidden z-10"
           >
-            <Image
-              src={currentSlide.images}
-              alt={currentSlide.text}
-              fill
-              priority
-              className="object-cover"
-            />
+            {/* Slow zoom-out on the image (Ken Burns) */}
+            <motion.div
+              className="absolute inset-0"
+              initial={{ scale: reduceMotion ? 1 : 1.12 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 6, ease: "easeOut" }}
+            >
+              <Image
+                src={currentSlide.images}
+                alt={currentSlide.text}
+                fill
+                sizes="100vw"
+                priority={currentIndex === 0}
+                className="object-cover"
+              />
+            </motion.div>
 
             {/* Dark Overlay for contrast */}
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/95 z-10" />
 
-            {/* Centered Text */}
-            <div className="absolute p-5 inset-0 flex flex-col items-center justify-center z-20">
+            {/* Text + buttons, staggered */}
+            <motion.div
+              variants={contentVariants}
+              className="absolute pt-5 inset-0 flex pb-20 flex-col items-start justify-end max-w-7xl mx-auto px-6 md:px-12  z-20"
+            >
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white text-5xl  md:text-9xl font-extrabold max-w-3xl mx-auto text-center tracking-tighter drop-shadow-lg"
+                variants={itemVariants}
+                className="text-white text-5xl mb-2  md:text-5xl font-extrabold  text-left tracking-tighter drop-shadow-lg"
               >
                 {currentSlide.text}
               </motion.p>
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-white font-mulish text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-center tracking-tighter drop-shadow-lg"
+                variants={itemVariants}
+                className="font-mulish max-w-2xl text-[17px] text-left text-white font-normal"
               >
                 {currentSlide.subText}
               </motion.p>
-            </div>
+              <motion.div variants={itemVariants} className="flex gap-3 mt-5">
+                <Link
+                  href="/contact"
+                  className="bg-[#B8944D]  text-white py-2 px-6 cursor-pointer text-md hover:bg-[#a89268] transition-colors"
+                >
+                  Explore Our Services
+                </Link>
+                <Link
+                  href="/contact"
+                  className="bg-[#2F73C9]  text-white py-2 px-6 cursor-pointer text-md hover:bg-[#a89268] transition-colors"
+                >
+                  Let's Talk
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </AnimatePresence>
 
@@ -112,7 +179,7 @@ export default function Header() {
           {data.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => goTo(index)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 index === currentIndex ? "w-10 bg-white" : "w-2.5 bg-white/40"
               }`}

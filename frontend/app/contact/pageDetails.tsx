@@ -1,6 +1,5 @@
 "use client";
 import Title from "@/components/Global/Title";
-import { ContactFormData } from "@/context/contact";
 import { LocateIcon, Mail, PhoneIcon } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -15,6 +14,23 @@ type SubmitStatus =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
+// Defined here because the old ContactFormData in "@/context/contact" still has `address`.
+// You can delete that import's file or update it to match this shape.
+interface ContactFormData {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  service: string;
+  message: string;
+}
+
+const SERVICE_OPTIONS = [
+  "Support for Life",
+  "Clarity for Business",
+  "Growth with Purpose",
+  "Other enquiry",
+] as const;
+
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 
@@ -22,7 +38,7 @@ const initialData: ContactFormData = {
   fullName: "",
   email: "",
   phoneNumber: "",
-  address: "",
+  service: "",
   message: "",
 };
 
@@ -35,7 +51,9 @@ const PageDetails = () => {
   const [status, setStatus] = useState<SubmitStatus>({ type: "idle" });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
@@ -58,12 +76,12 @@ const PageDetails = () => {
         },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `New contact message from ${data.fullName}`,
+          subject: `New enquiry (${data.service}) from ${data.fullName}`,
           from_name: data.fullName,
           name: data.fullName,
           email: data.email,
           phone: data.phoneNumber,
-          address: data.address,
+          service: data.service,
           message: data.message,
         }),
       });
@@ -71,7 +89,7 @@ const PageDetails = () => {
       const result: Web3FormsResponse = await response.json();
 
       if (response.ok && result.success) {
-        const message = "Message sent! We'll get back to you shortly.";
+        const message = "Enquiry sent! We'll get back to you shortly.";
         setStatus({ type: "success", message });
         toast.success(message);
         setData(initialData);
@@ -103,8 +121,14 @@ const PageDetails = () => {
           className="w-5xl mx-auto object-cover relative -top-75 max-md:-top-20 max-md:h-75 object-center max-w-full h-150"
         />
       </div>
-      <div className="text-center">
-        <Title small="Send a Message" title="Contact Us" />
+      <div className="text-center px-6">
+        <Title small="Send a Message" title="Let's Talk About What You Need." />
+        <p className="max-w-2xl mx-auto mt-4 text-[17px] text-[#7a7a7a] font-normal">
+          Whether you want support with your well-being, help with your
+          business, better people practices, improved customer service or
+          guidance with your career, we would be happy to hear from you.
+          Let&apos;s start with a conversation.
+        </p>
       </div>
 
       <form
@@ -129,7 +153,7 @@ const PageDetails = () => {
             required
             value={data.email}
             onChange={handleInputChange}
-            placeholder="Email"
+            placeholder="Email Address"
             className={inputClass}
           />
           <input
@@ -141,15 +165,24 @@ const PageDetails = () => {
             placeholder="Phone Number"
             className={inputClass}
           />
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={data.address}
+          <select
+            id="service"
+            name="service"
+            required
+            value={data.service}
             onChange={handleInputChange}
-            placeholder="Address"
             className={inputClass}
-          />
+            aria-label="What service are you interested in?"
+          >
+            <option value="" disabled>
+              What service are you interested in?
+            </option>
+            {SERVICE_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="flex flex-col gap-2 mt-2">
@@ -160,7 +193,7 @@ const PageDetails = () => {
             required
             value={data.message}
             onChange={handleInputChange}
-            placeholder="Message"
+            placeholder="How can we help?"
             className={`${inputClass} resize-none`}
           />
         </div>
@@ -171,7 +204,7 @@ const PageDetails = () => {
             disabled={isSubmitting}
             className="cursor-pointer flex gap-3 justify-center items-center bg-[#b8944d] text-sm w-fit px-7 tracking-widest font-primary uppercase py-3 text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            {isSubmitting ? "Sending..." : "Send Enquiry"}
           </button>
 
           {status.type !== "idle" && (

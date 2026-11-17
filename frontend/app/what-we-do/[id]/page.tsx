@@ -15,98 +15,71 @@ export interface ServiceDetail {
   description: string;
   serviceAreas: string[];
   primaryAudience?: string[];
-  headline?: string;
-  extraInfo?: string;
+  buttonLabel: string;
 }
 
 export const servicesData: ServiceDetail[] = [
   {
-    id: "hrPeoleAdvisory",
-    image: "/009.jpg",
-    number: "01",
-    title: "People Advisory and HR Consulting",
-    tagline:
-      "Helping growing businesses build the people side of their business properly.",
-    description:
-      "We Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture.",
-    serviceAreas: [
-      "HR Advisory & Strategy",
-      "HR Policies, Processes & Documentation",
-      "HR Foundations for Startups and SMEs",
-      "Recruitment & Talent Acquisition",
-      "Performance Management",
-      "Employee Engagement",
-      "Culture & Organizational Development",
-      "HR Systems & Process Improvement",
-      "Learning & Development",
-      "Training & Workshop Facilitation",
-      "People & Workplace Advisory",
-      "HR Health Checks & Reviews",
-      "Ongoing / Retained HR Support",
-    ],
-    primaryAudience: [
-      "Startups",
-      "Small Businesses",
-      "SMEs",
-      "Growing Organizations",
-      "Founders & Business Owners",
-    ],
-  },
-  {
-    id: "career-personal-growth",
-    image: "/011.jpg",
-    number: "02",
-    title: "Career & Personal Growth Advisory",
-    tagline:
-      "Sometimes you don't need someone to tell you what to do. You need someone to help you think it through.",
-    description:
-      "Career growth is not always a straight line. There are moments when people need support to understand their strengths, make better career decisions, prepare for opportunities, navigate transitions or rebuild confidence.",
-    serviceAreas: [
-      "Career Advisory & Coaching",
-      "Career Direction & Planning",
-      "CV & LinkedIn Profile Review",
-      "Interview Preparation",
-      "Career Transition Support",
-      "Professional Development",
-      "Workplace Navigation",
-      "Personal Growth Conversations",
-      "Goal Setting & Accountability",
-    ],
-    primaryAudience: [
-      "Students",
-      "Graduates",
-      "Job Seekers",
-      "Professionals",
-      "Career Changers",
-    ],
-  },
-  {
-    id: "training-facilitation",
+    id: "support-for-life",
     image: "/010.jpg",
-    number: "03",
-    title: "Training & Facilitation",
-    headline: "Learning that moves people forward.",
-    tagline:
-      "Training should not simply fill a room and produce certificates. It should change something.",
+    number: "01",
+    title: "Support for Life",
+    tagline: "Wellness, Counselling and Coaching",
     description:
-      "We design and facilitate practical learning experiences that help people understand better, work better and perform better.",
+      "Your well-being matters. Life can bring personal, emotional and work-related pressures that may be difficult to manage alone. Through wellness support, counselling and coaching, we provide a supportive space to help individuals work through challenges, gain perspective and take positive steps towards personal well-being and growth.",
     serviceAreas: [
-      "Workplace Effectiveness",
-      "Communication",
-      "Emotional Intelligence",
-      "Team Development",
-      "People Management",
-      "Performance Management",
-      "Workplace Culture",
-      "Employee Experience",
-      "Career Development",
-      "Professional Skills",
-      "HR & People Management",
+      "Personal wellness and well-being support",
+      "Counselling and emotional support",
+      "Life coaching and personal development",
+      "Support through stress, change and life transitions",
+      "Wellness talks, sessions or workshops",
     ],
-    extraInfo:
-      "Tailored workshops and facilitation are available for organizations.",
+    buttonLabel: "Enquire About Wellness Support",
+  },
+  {
+    id: "clarity-for-business",
+    image: "/009.jpg",
+    number: "02",
+    title: "Clarity for Business",
+    tagline: "Business Advisory, People Advisory and Customer Experience",
+    description:
+      "A stronger business starts with clarity. We help business owners and organisations deal with people and business challenges, improve workplace practices, strengthen service delivery and make better decisions. Our aim is to help businesses build strong foundations and improve performance.",
+    serviceAreas: [
+      "Business strategy and practical business advice",
+      "People Advisory and HR Consulting",
+      "HR setup and support for startups and small businesses",
+      "Recruitment and workforce planning",
+      "HR policies, procedures and documentation",
+      "Performance management and employee engagement",
+      "Pay, benefits and salary structure support",
+      "Customer Experience and Service Excellence",
+      "Business processes and service delivery improvement",
+    ],
+    primaryAudience: ["Business Owners", "Startups", "SMEs", "Organisations"],
+    buttonLabel: "Discuss Your Business Needs",
+  },
+  {
+    id: "growth-with-purpose",
+    image: "/011.jpg",
+    number: "03",
+    title: "Growth with Purpose",
+    tagline: "Career, Leadership and Professional Development",
+    description:
+      "Growth takes effort and the right support. Whether you are planning your next career move, building your professional skills or growing as a leader, we provide practical guidance to help you move forward with confidence and purpose.",
+    serviceAreas: [
+      "Career advice and career direction",
+      "CV and LinkedIn profile review",
+      "Interview preparation",
+      "Career change and transition support",
+      "Professional mentoring and coaching",
+      "Leadership and management development",
+      "Personal and professional development",
+      "Training and facilitation",
+    ],
+    buttonLabel: "Let's Talk About Your Next Step",
   },
 ];
+
 export async function generateStaticParams() {
   return servicesData.map((service) => ({
     id: service.id,
@@ -140,7 +113,7 @@ export default async function ServiceDetailPage({
 
         {/* Service Areas */}
         <section className="mb-12 mt-10">
-          <Title small="service areas" title="What we cover" />
+          <Title  title="What we cover" />
 
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {service.serviceAreas.map((area, idx) => (
@@ -155,28 +128,23 @@ export default async function ServiceDetailPage({
           </ul>
         </section>
 
-        {/* Target Audience (if available) */}
+        {/* Target Audience (only the business group has one) */}
         {service.primaryAudience && (
           <section className="mb-12">
             <Title small="" title="Primary Audience" />
 
-            <div className="flex flex-wrap justify-center gap-2">
+           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {service.primaryAudience.map((audience, idx) => (
-                <span
-                  key={idx}
-                  className="bg-[#EAF2FB] text-[#071a3d] px-4 py-2 rounded-full text-sm font-medium"
-                >
-                  {audience}
-                </span>
+                <li
+                key={idx}
+                className="flex items-center space-x-2 text-gray-700"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#B8944D]" />
+                <span>{audience}</span>
+              </li>
               ))}
-            </div>
+            </ul>
           </section>
-        )}
-
-        {service.extraInfo && (
-          <p className="text-md font-medium text-gray-600 bg-blue-50 p-4 rounded-md border-l-4 border-[#071a3d] mb-12">
-            {service.extraInfo}
-          </p>
         )}
 
         <div className="flex justify-center gap-4">
@@ -184,7 +152,7 @@ export default async function ServiceDetailPage({
             href="/contact"
             className="px-5  max-sm:px-3 cursor-pointer py-2.5 mt-4 text-sm bg-[#b8944d] hover:scale-105 transition duration-300 text-white"
           >
-            Book a Consultation
+            {service.buttonLabel}
           </Link>
           <Link
             href="/what-we-do"

@@ -22,7 +22,7 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center tracking-[0.3em] uppercase font-mulish mb-20 text-[10px] text-[#838280] font-medium"
         >
-          These are the Five pillars of the Og Crystal Services
+          These are the Three pillars of the Og Crystal Services
         </motion.p>
       ) : (
         ""
@@ -34,12 +34,19 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           image="/office.png"
           imagePosition="left"
           text1="Og Crystal Services"
-          text2="Counselling, Wellness and Coaching"
-          text3="Through professional guidance, practical strategies and meaningful conversations, we help individuals overcome challenges, build confidence, develop healthy habits and achieve a more balanced, fulfilling life."
+          text2="Support For Life"
+          text3="Support for individuals through wellness, counselling and coaching, helping them work through challenges and take positive steps towards a healthier and more balanced life."
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
-                aria-label="Contact us about People Advisory and HR Consulting"
+                aria-label="Learn more about Clarity for Business"
+                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
+                href={"/what-we-do/support-for-life"}
+              >
+                Learn More
+              </Link>
+              <Link
+                aria-label="Contact us about Clarity for Business"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -53,19 +60,19 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           image="/009.jpg"
           imagePosition="right"
           text1="Og Crystal Services"
-          text2="People Advisory and HR Consulting"
-          text3="Help organisations build and strengthen their people function through HR strategy, recruitment, workforce planning, performance management, employee engagement, compensation structures, policies, processes, and organisational culture."
+          text2="Clarity for Business"
+          text3="Practical support for businesses that want to improve their people practices, business direction, operations and customer experience."
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
-                aria-label="Learn more about People Advisory and HR Consulting"
+                aria-label="Learn more about Clarity for Business"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/hrPeoleAdvisory"}
+                href={"/what-we-do/clarity-for-business"}
               >
                 Learn More
               </Link>
               <Link
-                aria-label="Contact us about People Advisory and HR Consulting"
+                aria-label="Contact us about Clarity for Business"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
@@ -79,66 +86,20 @@ const Services = ({ notitle }: { notitle?: boolean }) => {
           backgroundColor="bg-[#EAF2FB]"
           image="/011.jpg"
           text1="Og Crystal Services"
-          text2="Career & Personal Growth Advisory"
-          text3="Career growth is not always a straight line. There are moments when people need support to understand their strengths, make better career decisions, prepare for opportunities, navigate transitions or rebuild confidence."
+          text2="Growth with Purpose"
+          text3="Support for people who want to grow in their careers, develop their skills, build confidence and become better leaders."
           imagePosition="left"
           buttons={
             <div className="flex justify-center gap-2 items-center">
               <Link
-                aria-label="Learn more about Career and Personal Growth Advisory"
+                aria-label="Learn more about Growth with Purpose"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/career-personal-growth"}
+                href={"/what-we-do/growth-with-purpose"}
               >
                 Learn More
               </Link>
               <Link
-                aria-label="Contact us about Career and Personal Growth Advisory"
-                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
-                href={"/contact"}
-              >
-                Contact Us
-              </Link>
-            </div>
-          }
-        />
-
-        <ServicesCard
-          backgroundColor="bg-[#2F73C9]/30"
-          image="/010.jpg"
-          imagePosition="right"
-          text1="OG crystal Services"
-          text2="Training & Facilitation"
-          text3="Learning that moves people forward. Training should not simply fill a room and produce certificates. It should change something. We design and facilitate practical learning experiences that help people understand better, work better and perform better."
-          buttons={
-            <div className="flex justify-center gap-2 items-center">
-              <Link
-                aria-label="Learn more about Training and Facilitation"
-                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#071a3d] transition-transform hover:scale-105"
-                href={"/what-we-do/training-facilitation"}
-              >
-                Learn More
-              </Link>
-              <Link
-                aria-label="Contact us about Training and Facilitation"
-                className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
-                href={"/contact"}
-              >
-                Contact Us
-              </Link>
-            </div>
-          }
-        />
-        <ServicesCard
-          backgroundColor="bg-[#f8f6f1]"
-          image="/003.jpg"
-          imagePosition="left"
-          text1="OG crystal Services"
-          text2="Customer Experience and Service Excellence"
-          text3="Helping businesses improve customer interactions, strengthen service standards, develop customer-focused teams, review service delivery processes, and create experiences that encourage trust, satisfaction, and loyalty."
-          buttons={
-            <div className="flex justify-center gap-2 items-center">
-              <Link
-                aria-label="Contact us about Customer Experience and Service Excellence"
+                aria-label="Contact us about Growth with Purpose"
                 className="py-2 px-5 font-medium max-sm:text-[12px] text-white bg-[#B8944D] transition-transform hover:scale-105"
                 href={"/contact"}
               >
